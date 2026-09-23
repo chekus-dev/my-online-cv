@@ -3,18 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chekus Joseph | Web Developer for Hire</title>
-    <meta name="description" content="Chekus Joseph builds fast, reliable web applications and websites — full-stack development, backend systems, and technical troubleshooting." />
+    <title>Chekus Joseph | Full-Stack Developer</title>
+    <meta name="description" content="Chekus Joseph is a full-stack web developer specialising in Flask, Go, and modern front-end — open to remote and contract roles." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="http://localhost/" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Chekus Joseph" />
-    <meta property="og:title" content="Chekus Joseph | Web Developer for Hire" />
-    <meta property="og:description" content="Full-stack web development — front end, backend, APIs, and system troubleshooting." />
+    <meta property="og:title" content="Chekus Joseph | Full-Stack Developer" />
+    <meta property="og:description" content="Full-stack developer — Flask, Go, REST APIs, and clean front-end. Open to remote and contract roles." />
     <meta property="og:url" content="http://localhost/" />
     <meta property="og:image" content="http://localhost/static/img/og-cover.svg" />
-    <meta name="small:card" content="summary_small_image" />
+    <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg" />
 
@@ -25,7 +25,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/static/js/tailwind-config.js"></script>
     <link rel="stylesheet" href="/static/css/site.css" />
-    
   </head>
   <body class="m-0 font-sans text-ink leading-[1.65] bg-bg min-h-screen">
 
@@ -39,322 +38,338 @@
         </a>
 
         <nav class="hidden md:flex gap-7 flex-wrap" aria-label="Primary">
-          
-          <a href="/"
-             class="text-sm text-ink font-medium"
-             aria-current="page">Home</a>
-          
-          <a href="/about.html"
-             class="text-sm text-muted hover:text-ink transition-colors"
-             >About</a>
-          
-          <a href="/services.html"
-             class="text-sm text-muted hover:text-ink transition-colors"
-             >Services</a>
-          
-          <a href="/contact.html"
-             class="text-sm text-muted hover:text-ink transition-colors"
-             >Contact</a>
-          
+          <a href="/" class="text-sm text-ink font-medium" aria-current="page">Home</a>
+          <a href="/about.html" class="text-sm text-muted hover:text-ink transition-colors">About</a>
+          <a href="/services.html" class="text-sm text-muted hover:text-ink transition-colors">Work</a>
+          <a href="/contact.html" class="text-sm text-muted hover:text-ink transition-colors">Contact</a>
         </nav>
 
         <button id="menu-toggle" class="md:hidden text-ink p-2 -mr-2" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
           <svg id="icon-open" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
           <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
-
       </div>
 
       <div id="mobile-menu" class="md:hidden max-h-0 opacity-0 overflow-hidden px-[16px] bg-bg/95">
         <nav class="flex flex-col py-2" aria-label="Mobile">
-          
-          <a href="/"
-             class="block py-2.5 text-sm text-ink font-medium">Home</a>
-          
-          <a href="/about.html"
-             class="block py-2.5 text-sm text-muted hover:text-ink transition-colors">About</a>
-          
-          <a href="/services.html"
-             class="block py-2.5 text-sm text-muted hover:text-ink transition-colors">Services</a>
-          
-          <a href="/contact.html"
-             class="block py-2.5 text-sm text-muted hover:text-ink transition-colors">Contact</a>
-          
+          <a href="/" class="block py-2.5 text-sm text-ink font-medium">Home</a>
+          <a href="/about.html" class="block py-2.5 text-sm text-muted hover:text-ink transition-colors">About</a>
+          <a href="/services.html" class="block py-2.5 text-sm text-muted hover:text-ink transition-colors">Work</a>
+          <a href="/contact.html" class="block py-2.5 text-sm text-muted hover:text-ink transition-colors">Contact</a>
         </nav>
       </div>
     </header>
 
-    
-      
-    
-
     <main id="main-content">
-      
-<!-- Hero -->
-<section class="py-16 md:py-24">
-  <div class="w-[min(1120px,calc(100%-32px))] mx-auto grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
 
-    <div>
-      <p class="eyebrow-path font-mono text-[0.8rem] text-accent mb-5">available-now</p>
-      <h1 class="font-display font-semibold text-[clamp(2.2rem,4.8vw,3.4rem)] leading-[1.12] mb-6">I build high-quality websites and web applications for growing businesses.</h1>
-      <p class="text-muted text-[1.05rem] max-w-[520px] mb-10">
-        From front-end interfaces to backend systems and database design — I handle
-        the full stack, so you get a finished product without juggling multiple hires.
-      </p>
-      <div class="flex gap-3 flex-wrap mb-12">
-        <a href="/contact.html" class="inline-flex items-center px-5 py-3 text-sm font-medium text-white bg-accent hover:bg-accentstrong transition-colors">Start a project</a>
-        <a href="/services.html" class="inline-flex items-center px-5 py-3 text-sm font-medium text-ink transition-colors">See what I offer</a>
+      <!-- ── HERO ── -->
+      <section class="py-16 md:py-24">
+        <div class="w-[min(1120px,calc(100%-32px))] mx-auto grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-14 items-center">
+
+          <div>
+            <!-- Status badge — signals availability immediately -->
+            <p class="eyebrow-path font-mono text-[0.8rem] text-accent mb-5">open-to-work</p>
+
+            <h1 class="font-display font-semibold text-[clamp(2.2rem,4.8vw,3.4rem)] leading-[1.12] mb-6">
+              Full-Stack Developer.<br/>
+              Flask, Go, and clean front&#8209;end.
+            </h1>
+
+            <p class="text-muted text-[1.05rem] max-w-[520px] mb-4">
+              I build and ship complete web applications — database to UI —
+              and handle the Linux side of deployment so nothing falls through
+              the gap between dev and production.
+            </p>
+
+            <p class="text-muted text-[1.05rem] max-w-[520px] mb-10">
+              Open to <strong class="text-ink font-medium">remote full-time</strong>,
+              <strong class="text-ink font-medium">contract</strong>, and
+              <strong class="text-ink font-medium">part-time</strong> roles.
+              Based in Nigeria — available across time zones.
+            </p>
+
+            <div class="flex gap-3 flex-wrap mb-12">
+              <a href="/contact.html" class="inline-flex items-center px-5 py-3 text-sm font-medium text-white bg-accent hover:bg-accentstrong transition-colors">Get in touch</a>
+              <a href="/services.html" class="inline-flex items-center px-5 py-3 text-sm font-medium text-ink transition-colors">See my work</a>
+            </div>
+
+            <!-- Quick-read stat bar — things employers scan for -->
+            <dl class="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-5 max-w-[520px] pt-6 border-t border-[#1e293b]">
+              <div>
+                <dd class="font-display font-semibold text-ink text-base leading-tight">2 yrs with two GITHUB</dd>
+                <dd class="text-muted text-xs mt-1">Experience</dd>
+              </div>
+              <div>
+                <dd class="font-display font-semibold text-ink text-base leading-tight">6</dd>
+                <dd class="text-muted text-xs mt-1">Shipped projects</dd>
+              </div>
+              <div>
+                <dd class="font-display font-semibold text-ink text-base leading-tight">Go, Flask, javascript, and python</dd>
+                <dd class="text-muted text-xs mt-1">Primary stack</dd>
+              </div>
+              <div>
+                <dd class="font-display font-semibold text-ink text-base leading-tight">Remote-ready</dd>
+                <dd class="text-muted text-xs mt-1">Available now</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="profile-photo-slot" aria-label="Profile photo">
+            <img src="/static/img/profile.jpg" alt="Chekus Joseph" onerror="this.hidden = true; this.nextElementSibling.hidden = false" />
+            <span hidden>Add profile photo</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ── SKILLS / STACK ── -->
+      <!-- Employers want to know exactly what you can do before they read further -->
+      <section class="py-16 md:py-20 border-t border-[#1e293b]">
+        <div class="w-[min(1120px,calc(100%-32px))] mx-auto">
+          <p class="eyebrow-path font-mono text-[0.8rem] text-accent mb-3.5">skills</p>
+          <h2 class="font-display font-semibold text-[clamp(1.7rem,2.6vw,2.4rem)] leading-[1.1] mb-10">What I work with</h2>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <div>
+              <p class="font-mono text-xs text-accent mb-3">Back-end</p>
+              <ul class="space-y-2">
+                <li class="flex items-center gap-2 text-sm text-ink"><span class="w-1 h-1 bg-accent shrink-0"></span>Python · Flask</li>
+                <li class="flex items-center gap-2 text-sm text-ink"><span class="w-1 h-1 bg-accent shrink-0"></span>Go (net/http, templates)</li>
+                <li class="flex items-center gap-2 text-sm text-ink"><span class="w-1 h-1 bg-accent shrink-0"></span>REST API design</li>
+                <li class="flex items-center gap-2 text-sm text-ink"><span class="w-1 h-1 bg-accent shrink-0"></span>SQLite · PostgreSQL</li>
+                <li class="flex items-center gap-2 text-sm text-ink"><span class="w-1 h-1 bg-accent shrink-0"></span>Authentication &amp; sessions</li>
+              </ul>
+            </div>
+
+            <div>
+              <p class="font-mono text-xs text-accent mb-3">Front-end</p>
+              <ul class="space-y-2">
+                <li class="flex items-center gap-2 text-sm text-ink"><span class="w-1 h-1 bg-accent shrink-0"></span>HTML · CSS · JavaScript</li>
+                <li class="flex items-center gap-2 text-sm text-ink"><span class="w-1 h-1 bg-accent shrink-0"></span>Tailwind CSS</li>
+                <li class="flex items-center gap-2 text-sm text-ink"><span class="w-1 h-1 bg-accent shrink-0"></span>Jinja2 templating</li>
+                <li class="flex items-center gap-2 text-sm text-ink"><span class="w-1 h-1 bg-accent shrink-0"></span>Responsive design</li>
+                <li class="flex items-center gap-2 text-sm text-ink"><span class="w-1 h-1 bg-accent shrink-0"></span>Accessible markup</li>
+              </ul>
+            </div>
+
+            <div>
+              <p class="font-mono text-xs text-accent mb-3">Systems &amp; DevOps</p>
+              <ul class="space-y-2">
+                <li class="flex items-center gap-2 text-sm text-ink"><span class="w-1 h-1 bg-accent shrink-0"></span>Ubuntu · Linux admin</li>
+                <li class="flex items-center gap-2 text-sm text-ink"><span class="w-1 h-1 bg-accent shrink-0"></span>Bash scripting</li>
+                <li class="flex items-center gap-2 text-sm text-ink"><span class="w-1 h-1 bg-accent shrink-0"></span>Git · GitHub</li>
+                <li class="flex items-center gap-2 text-sm text-ink"><span class="w-1 h-1 bg-accent shrink-0"></span>Nginx · VPS deployment</li>
+                <li class="flex items-center gap-2 text-sm text-ink"><span class="w-1 h-1 bg-accent shrink-0"></span>Hardware diagnostics</li>
+              </ul>
+            </div>
+
+            <div>
+              <p class="font-mono text-xs text-accent mb-3">Practices</p>
+              <ul class="space-y-2">
+                <li class="flex items-center gap-2 text-sm text-ink"><span class="w-1 h-1 bg-accent shrink-0"></span>Clean, documented code</li>
+                <li class="flex items-center gap-2 text-sm text-ink"><span class="w-1 h-1 bg-accent shrink-0"></span>Version control hygiene</li>
+                <li class="flex items-center gap-2 text-sm text-ink"><span class="w-1 h-1 bg-accent shrink-0"></span>Self-directed learning</li>
+                <li class="flex items-center gap-2 text-sm text-ink"><span class="w-1 h-1 bg-accent shrink-0"></span>Async-first communication</li>
+                <li class="flex items-center gap-2 text-sm text-ink"><span class="w-1 h-1 bg-accent shrink-0"></span>End-to-end ownership</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SELECTED PROJECTS ── -->
+      <!-- Replaces the "services" frame — employers want to see output, not a menu -->
+      <section class="py-16 md:py-24 border-t border-[#1e293b]">
+        <div class="w-[min(1120px,calc(100%-32px))] mx-auto">
+          <div class="mb-12">
+            <p class="eyebrow-path font-mono text-[0.8rem] text-accent mb-3.5">selected-work</p>
+            <h2 class="font-display font-semibold text-[clamp(1.7rem,2.6vw,2.4rem)] leading-[1.1]">Projects I've built</h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <!-- Project 1 — Portfolio site -->
+            <article class="flex flex-col p-6 border border-[#1e293b] hover:border-accent/40 transition-colors">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <p class="font-mono text-xs text-accent mb-1">Flask · Jinja2 · Tailwind CSS</p>
+                  <h3 class="text-base font-display font-semibold text-ink">This site</h3>
+                </div>
+                <a href="https://github.com/chekus-dev/my-online-cv" target="_blank" rel="noreferrer"
+                   class="text-muted hover:text-accent transition-colors shrink-0 ml-4" aria-label="View on GitHub">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+              </div>
+              <p class="text-muted text-sm flex-1">
+                Multi-page CV and portfolio built with Flask routing, Jinja2 templates, and Tailwind CSS via CDN
+                — no build step. Dynamic GitHub activity pulls from the API at runtime.
+                Covers responsive layout, accessibility basics, and meta/OG tag setup.
+              </p>
+              <div class="mt-4 pt-4 border-t border-[#1e293b] flex gap-4 text-xs font-mono text-muted">
+                <span>6 pages</span><span>·</span><span>GitHub API</span><span>·</span><span>Responsive</span><span>·</span><span>SEO</span>
+              </div>
+            </article>
+
+            <!-- Project 3 — Go HTTP servers -->
+            <article class="flex flex-col p-6 border border-[#1e293b] hover:border-accent/40 transition-colors">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <p class="font-mono text-xs text-accent mb-1">Go · net/http · html/template</p>
+                  <h3 class="text-base font-display font-semibold text-ink">Go HTTP Server Series</h3>
+                </div>
+                <a href="https://github.com/chekus-dev" target="_blank" rel="noreferrer"
+                   class="text-muted hover:text-accent transition-colors shrink-0 ml-4" aria-label="View on GitHub">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+              </div>
+              <p class="text-muted text-sm flex-1">
+                A progression of Go projects covering HTTP routing and status codes, pattern matching,
+                HTML template serving, and middleware. Documents my Go learning arc from
+                stdlib to structured server patterns — all on GitHub.
+              </p>
+              <div class="mt-4 pt-4 border-t border-[#1e293b] flex gap-4 text-xs font-mono text-muted">
+                <span>4 repos</span><span>·</span><span>Routing</span><span>·</span><span>Templates</span><span>·</span><span>Middleware</span>
+              </div>
+            </article>
+
+            <!-- Project 4 — Todo app -->
+            <article class="flex flex-col p-6 border border-[#1e293b] hover:border-accent/40 transition-colors">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <p class="font-mono text-xs text-accent mb-1">Python · Flask</p>
+                  <h3 class="text-base font-display font-semibold text-ink">Todo List App</h3>
+                </div>
+                <a href="https://github.com/chekus-dev/todo-list-app" target="_blank" rel="noreferrer"
+                   class="text-muted hover:text-accent transition-colors shrink-0 ml-4" aria-label="View on GitHub">
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+              </div>
+              <p class="text-muted text-sm flex-1">
+                CRUD task manager built with Flask — create, complete, and delete tasks with
+                persistent storage. Clean, minimal codebase that demonstrates Python web
+                fundamentals: routes, forms, and data handling.
+              </p>
+              <div class="mt-4 pt-4 border-t border-[#1e293b] flex gap-4 text-xs font-mono text-muted">
+                <span>CRUD</span><span>·</span><span>Forms</span><span>·</span><span>Persistence</span>
+              </div>
+            </article>
+
+          </div>
+
+          <div class="mt-8 flex gap-4 flex-wrap text-sm">
+            <a href="https://github.com/chekus-dev" target="_blank" rel="noreferrer"
+               class="text-accent hover:text-accentstrong transition-colors font-medium">@chekus-dev on GitHub &rarr;</a>
+            <a href="https://github.com/chokafor-bit" target="_blank" rel="noreferrer"
+               class="text-accent hover:text-accentstrong transition-colors font-medium">@chokafor-bit &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── ABOUT / VALUE PROP ── -->
+      <!-- Concise "why hire me" — what no generic candidate says -->
+      <section class="py-16 md:py-20 border-t border-[#1e293b]">
+        <div class="w-[min(760px,calc(100%-32px))] mx-auto">
+          <p class="eyebrow-path font-mono text-[0.8rem] text-accent mb-3.5">about</p>
+          <h2 class="font-display font-semibold text-[clamp(1.7rem,2.6vw,2.4rem)] leading-[1.1] mb-6">
+            I own what I build, end to end.
+          </h2>
+          <div class="space-y-4 text-muted text-[1.02rem]">
+            <p>
+              I started with Python and Flask, then picked up Go because I wanted to understand
+              what happens closer to the metal. That curiosity carried into Linux system administration —
+              I'm comfortable in a terminal, configuring servers, and diagnosing things most developers
+              treat as someone else's problem.
+            </p>
+            <p>
+              I work well independently, communicate clearly in writing, and push code that's
+              meant to be read by the next person — not just run by a machine.
+              If you need someone who can take a ticket from spec to shipped without hand-holding,
+              I can do that.
+            </p>
+          </div>
+          <a href="/about.html" class="inline-block mt-6 text-sm font-medium text-accent hover:text-accentstrong transition-colors">Full background &rarr;</a>
+        </div>
+      </section>
+
+      <!-- ── GITHUB LIVE ── -->
+      <section class="py-16 md:py-20 border-t border-[#1e293b]">
+        <div class="w-[min(1120px,calc(100%-32px))] mx-auto">
+          <div class="flex items-end justify-between flex-wrap gap-4 mb-10">
+            <div>
+              <p class="eyebrow-path font-mono text-[0.8rem] text-accent mb-3.5">github-activity</p>
+              <h2 class="font-display font-semibold text-[clamp(1.7rem,2.6vw,2.4rem)] leading-[1.1]">Live from GitHub</h2>
+            </div>
+            <div class="flex flex-wrap gap-4 text-sm font-medium">
+              <a href="https://github.com/chekus-dev" target="_blank" rel="noreferrer" class="text-accent hover:text-accentstrong transition-colors">@chekus-dev &rarr;</a>
+              <a href="https://github.com/chokafor-bit" target="_blank" rel="noreferrer" class="text-accent hover:text-accentstrong transition-colors">@chokafor-bit &rarr;</a>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+            <div class="p-5 border border-[#1e293b]">
+              <p class="font-display font-semibold text-2xl text-ink">12</p>
+              <p class="text-muted text-xs mt-1">Public repos</p>
+            </div>
+            <div class="p-5 border border-[#1e293b]">
+              <p class="font-display font-semibold text-2xl text-ink">6</p>
+              <p class="text-muted text-xs mt-1">Stars earned</p>
+            </div>
+            <div class="p-5 border border-[#1e293b]">
+              <p class="font-display font-semibold text-2xl text-ink">Go · Python</p>
+              <p class="text-muted text-xs mt-1">Top languages</p>
+            </div>
+            <div class="p-5 border border-[#1e293b]">
+              <p class="font-display font-semibold text-2xl text-ink">2+ yr</p>
+              <p class="text-muted text-xs mt-1">On GitHub</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="text-muted text-xs mr-1">Most used:</span>
+            <span class="font-mono text-[0.72rem] text-mutedstrong px-2.5 py-1 border border-[#1e293b]">Go</span>
+            <span class="font-mono text-[0.72rem] text-mutedstrong px-2.5 py-1 border border-[#1e293b]">HTML</span>
+            <span class="font-mono text-[0.72rem] text-mutedstrong px-2.5 py-1 border border-[#1e293b]">Python</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── CONTACT CTA ── -->
+      <section class="py-16 md:py-24 border-t border-[#1e293b]">
+        <div class="w-[min(760px,calc(100%-32px))] mx-auto">
+          <p class="eyebrow-path font-mono text-[0.8rem] text-accent mb-3.5">contact</p>
+          <h2 class="font-display font-semibold text-[clamp(1.7rem,2.6vw,2.4rem)] leading-[1.1] mb-4">
+            Hiring or want to talk?
+          </h2>
+          <p class="text-muted text-[1.02rem] mb-8 max-w-[480px]">
+            Whether it's a job opening, a contract role, or just an initial conversation —
+            reach out on WhatsApp or Telegram and I'll get back to you the same day.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 max-w-[480px]">
+            <a href="https://wa.me/2349130789611" target="_blank" rel="noopener"
+               class="flex-1 inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium text-white bg-accent hover:bg-accentstrong transition-colors">WhatsApp</a>
+            <a href="https://t.me/+2349130789611" target="_blank" rel="noopener"
+               class="flex-1 inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium text-ink border border-[#1e293b] hover:border-accent/40 transition-colors">Telegram</a>
+            <a href="/contact.html"
+               class="flex-1 inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium text-ink border border-[#1e293b] hover:border-accent/40 transition-colors">All contact info</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="border-t border-[#1e293b] py-8">
+      <div class="w-[min(1120px,calc(100%-32px))] mx-auto flex items-center justify-between flex-wrap gap-4">
+        <p class="text-muted text-sm">&copy; 2026 Chekus Joseph</p>
+        <div class="flex gap-5 text-sm">
+          <a href="https://github.com/chekus-dev" target="_blank" rel="noreferrer" class="text-muted hover:text-ink transition-colors">GitHub</a>
+          <a href="/about.html" class="text-muted hover:text-ink transition-colors">About</a>
+          <a href="/contact.html" class="text-muted hover:text-ink transition-colors">Contact</a>
+        </div>
       </div>
+    </footer>
 
-      <dl class="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-5 max-w-[520px] pt-6">
-        
-        <div>
-          <dt class="sr-only">Shipped projects</dt>
-          <dd class="font-display font-semibold text-ink text-base leading-tight">6</dd>
-          <dd class="text-muted text-xs mt-1">Shipped projects</dd>
-        </div>
-        
-        <div>
-          <dt class="sr-only">Primary stack</dt>
-          <dd class="font-display font-semibold text-ink text-base leading-tight">Go · Flask</dd>
-          <dd class="text-muted text-xs mt-1">Primary stack</dd>
-        </div>
-        
-        <div>
-          <dt class="sr-only">Front end to backend</dt>
-          <dd class="font-display font-semibold text-ink text-base leading-tight">Full-Stack</dd>
-          <dd class="text-muted text-xs mt-1">Front end to backend</dd>
-        </div>
-        
-        <div>
-          <dt class="sr-only">Based in</dt>
-          <dd class="font-display font-semibold text-ink text-base leading-tight">Nigeria</dd>
-          <dd class="text-muted text-xs mt-1">Based in</dd>
-        </div>
-        
-      </dl>
-    </div>
-
-    <div class="profile-photo-slot" aria-label="Profile photo">
-      <img src="/static/img/profile.jpg" alt="Chekus Joseph" onerror="this.hidden = true; this.nextElementSibling.hidden = false" />
-      <span hidden>Add profile photo</span>
-    </div>
-
-  </div>
-</section>
-
-<!-- Services -->
-<section id="services" class="py-16 md:py-24">
-  <div class="w-[min(1120px,calc(100%-32px))] mx-auto">
-    <div class="mb-12">
-      <p class="eyebrow-path font-mono text-[0.8rem] text-accent mb-3.5">services</p>
-      <h2 class="font-display font-semibold text-[clamp(1.7rem,2.6vw,2.4rem)] leading-[1.1]">Services built around your project's needs</h2>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-      <article class="flex flex-col p-6 transition-colors">
-        <div class="w-9 h-9 grid place-items-center text-accent mb-4">
-          <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
-        </div>
-        <h3 class="mb-2 text-base font-display font-semibold text-ink">Full-Stack Web Apps</h3>
-        <p class="text-muted text-sm">From database design to the interface your users touch — built end to end, with authentication, APIs, and integrations included where needed.</p>
-      </article>
-
-      <article class="flex flex-col p-6 transition-colors">
-        <div class="w-9 h-9 grid place-items-center text-accent mb-4">
-          <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21"/></svg>
-        </div>
-        <h3 class="mb-2 text-base font-display font-semibold text-ink">Websites &amp; Landing Pages</h3>
-        <p class="text-muted text-sm">Responsive, fast-loading sites built to convert — whether that's a portfolio, a business site, or a page like this one.</p>
-      </article>
-
-      <article class="flex flex-col p-6 transition-colors">
-        <div class="w-9 h-9 grid place-items-center text-accent mb-4">
-          <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 0a3 3 0 100 6h.008v.008H18.75V19.5a3 3 0 00-3-3m-6.75 0V9.75"/></svg>
-        </div>
-        <h3 class="mb-2 text-base font-display font-semibold text-ink">Backend &amp; APIs</h3>
-        <p class="text-muted text-sm">Reliable server-side systems — REST APIs, database architecture, and integrations with payment or messaging providers.</p>
-      </article>
-
-      <article class="flex flex-col p-6 transition-colors">
-        <div class="w-9 h-9 grid place-items-center text-accent mb-4">
-          <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085"/></svg>
-        </div>
-        <h3 class="mb-2 text-base font-display font-semibold text-ink">Troubleshooting &amp; Setup</h3>
-        <p class="text-muted text-sm">Linux system configuration, hardware upgrades, and diagnostic work when something's broken and needs a fix that sticks.</p>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- Why work with me -->
-<section class="py-16 md:py-24">
-  <div class="w-[min(760px,calc(100%-32px))] mx-auto">
-    <p class="eyebrow-path font-mono text-[0.8rem] text-accent mb-3.5">why-me</p>
-    <h2 class="font-display font-semibold text-[clamp(1.7rem,2.6vw,2.4rem)] leading-[1.1] mb-6">One person, full ownership, no runaround.</h2>
-    <p class="text-muted text-[1.02rem]">
-      You deal with one developer from first conversation to final deploy — no handoffs,
-      no lost context. I write code that's built to hold up, and I stay hands-on with
-      Linux, servers, and infrastructure so the technical side doesn't become your problem.
-    </p>
-  </div>
-</section>
-
-<!-- GitHub activity — real, verifiable proof of work, not fabricated testimonials -->
-<section class="py-16 md:py-24">
-  <div class="w-[min(1120px,calc(100%-32px))] mx-auto">
-    <div class="flex items-end justify-between flex-wrap gap-4 mb-10">
-      <div>
-        <p class="eyebrow-path font-mono text-[0.8rem] text-accent mb-3.5">github-activity</p>
-        <h2 class="font-display font-semibold text-[clamp(1.7rem,2.6vw,2.4rem)] leading-[1.1]">Live from GitHub</h2>
-      </div>
-      <div class="flex flex-wrap gap-4 text-sm font-medium">
-        <a href="https://github.com/chekus-dev" target="_blank" rel="noreferrer" class="text-accent hover:text-accentstrong transition-colors">@chekus-dev &rarr;</a>
-        <a href="https://github.com/chokafor-bit" target="_blank" rel="noreferrer" class="text-accent hover:text-accentstrong transition-colors">@chokafor-bit &rarr;</a>
-      </div>
-    </div>
-
-    
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-      <div class="p-5">
-        <p class="font-display font-semibold text-2xl text-ink">12</p>
-        <p class="text-muted text-xs mt-1">Public repos</p>
-      </div>
-      <div class="p-5">
-        <p class="font-display font-semibold text-2xl text-ink">6</p>
-        <p class="text-muted text-xs mt-1">Stars earned</p>
-      </div>
-      <div class="p-5">
-        <p class="font-display font-semibold text-2xl text-ink">0</p>
-        <p class="text-muted text-xs mt-1">Followers</p>
-      </div>
-      <div class="p-5">
-        <p class="font-display font-semibold text-2xl text-ink">1+</p>
-        <p class="text-muted text-xs mt-1">Years on GitHub</p>
-      </div>
-    </div>
-
-    
-    <div class="flex items-center gap-2 flex-wrap mb-8">
-      <span class="text-muted text-xs mr-1">Most used:</span>
-      
-      <span class="font-mono text-[0.72rem] text-mutedstrong px-2.5 py-1">Go</span>
-      
-      <span class="font-mono text-[0.72rem] text-mutedstrong px-2.5 py-1">HTML</span>
-      
-      <span class="font-mono text-[0.72rem] text-mutedstrong px-2.5 py-1">Python</span>
-      
-    </div>
-    
-
-    
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      
-      <a href="https://github.com/chekus-dev/todo-list-app" target="_blank" rel="noreferrer" class="block p-5 transition-colors">
-        <div class="flex items-center justify-between mb-2">
-          <span class="font-mono text-sm text-ink truncate">todo-list-app</span>
-          
-          <span class="text-muted text-xs flex items-center gap-1 shrink-0 ml-2">
-            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>
-            1
-          </span>
-          
-        </div>
-        
-        
-        <span class="font-mono text-[0.68rem] text-muted">Python</span>
-        
-      </a>
-      
-      <a href="https://github.com/chekus-dev/learn-go-http-server" target="_blank" rel="noreferrer" class="block p-5 transition-colors">
-        <div class="flex items-center justify-between mb-2">
-          <span class="font-mono text-sm text-ink truncate">learn-go-http-server</span>
-          
-          <span class="text-muted text-xs flex items-center gap-1 shrink-0 ml-2">
-            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>
-            1
-          </span>
-          
-        </div>
-        
-        <p class="text-muted text-sm mb-3 line-clamp-2">i created this repository to teach go-http-server about status code and pattern macthing</p>
-        
-        
-        <span class="font-mono text-[0.68rem] text-muted">Go</span>
-        
-      </a>
-      
-      <a href="https://github.com/chekus-dev/go-http-template-server" target="_blank" rel="noreferrer" class="block p-5 transition-colors">
-        <div class="flex items-center justify-between mb-2">
-          <span class="font-mono text-sm text-ink truncate">go-http-template-server</span>
-          
-          <span class="text-muted text-xs flex items-center gap-1 shrink-0 ml-2">
-            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>
-            1
-          </span>
-          
-        </div>
-        
-        
-        <span class="font-mono text-[0.68rem] text-muted">Go</span>
-        
-      </a>
-      
-      <a href="https://github.com/chekus-dev/updated-http-server-in-golang" target="_blank" rel="noreferrer" class="block p-5 transition-colors">
-        <div class="flex items-center justify-between mb-2">
-          <span class="font-mono text-sm text-ink truncate">updated-http-server-in-golang</span>
-          
-          <span class="text-muted text-xs flex items-center gap-1 shrink-0 ml-2">
-            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>
-            1
-          </span>
-          
-        </div>
-        
-        
-        <span class="font-mono text-[0.68rem] text-muted">Go</span>
-        
-      </a>
-      
-      <a href="https://github.com/chekus-dev/simple-http-server-in-golang" target="_blank" rel="noreferrer" class="block p-5 transition-colors">
-        <div class="flex items-center justify-between mb-2">
-          <span class="font-mono text-sm text-ink truncate">simple-http-server-in-golang</span>
-          
-          <span class="text-muted text-xs flex items-center gap-1 shrink-0 ml-2">
-            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 16 16"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>
-            1
-          </span>
-          
-        </div>
-        
-        
-        <span class="font-mono text-[0.68rem] text-muted">Go</span>
-        
-      </a>
-      
-    </div>
-    
-    
-  </div>
-</section>
-
-<!-- Contact -->
-<section id="contact" class="py-16 md:py-24">
-  <div class="w-[min(760px,calc(100%-32px))] mx-auto">
-    <p class="eyebrow-path font-mono text-[0.8rem] text-accent mb-3.5">contact</p>
-    <h2 class="font-display font-semibold text-[clamp(1.7rem,2.6vw,2.4rem)] leading-[1.1] mb-8">Have a project in mind?</h2>
-
-    <div class="flex flex-col sm:flex-row gap-3 max-w-[480px]">
-      <a href="https://wa.me/2349130789611" target="_blank" rel="noopener" class="flex-1 inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium text-white bg-accent hover:bg-accentstrong transition-colors">WhatsApp Me</a>
-      <a href="https://t.me/+2349130789611" target="_blank" rel="noopener" class="flex-1 inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium text-ink transition-colors">Telegram</a>
-      <a href="/contact.html" class="flex-1 inline-flex items-center justify-center px-6 py-3.5 text-sm font-medium text-ink transition-colors">Contact details</a>
-    </div>
-  </div>
-</section>
-        <p class="text-muted">&copy; 2026 Chekus Joseph</p>
-      </div>    
-        <script src="/static/js/main.js" defer></script>
+    <script src="/static/js/main.js" defer></script>
   </body>
 </html>
