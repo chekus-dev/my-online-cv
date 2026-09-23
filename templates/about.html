@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — Chekus Joseph</title>
+    <meta name="description" content="Learn more about Chekus Joseph — a full-stack web developer working across front-end, backend, databases, and Linux systems." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="http://localhost/about" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Chekus Joseph" />
+    <meta property="og:title" content="Chekus Joseph | Web Developer for Hire" />
+    <meta property="og:description" content="Full-stack web development — front end, backend, APIs, and system troubleshooting." />
+    <meta property="og:url" content="http://localhost/about" />
+    <meta property="og:image" content="http://localhost/static/img/og-cover.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/static/js/tailwind-config.js"></script>
+    <link rel="stylesheet" href="/static/css/site.css" />
+    
+  </head>
+  <body class="m-0 font-sans text-ink leading-[1.65] bg-bg min-h-screen">
+
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <header class="sticky top-0 z-20 backdrop-blur-lg bg-bg/85">
+      <div class="w-[min(1120px,calc(100%-32px))] mx-auto flex items-center justify-between min-h-[64px] gap-4 flex-wrap">
+        <a href="/" class="flex items-center gap-2.5" aria-label="Chekus Joseph home">
+          <span class="w-8 h-8 grid place-items-center bg-accent text-white font-display font-bold text-sm">CJ</span>
+          <span class="hidden sm:inline text-sm font-medium text-mutedstrong">Chekus Joseph</span>
+        </a>
+
+        <nav class="hidden md:flex gap-7 flex-wrap" aria-label="Primary">
+          
+          <a href="/"
+             class="text-sm text-muted hover:text-ink transition-colors"
+             >Home</a>
+          
+          <a href="/about.html"
+             class="text-sm text-ink font-medium"
+             aria-current="page">About</a>
+          
+          <a href="/services.html"
+             class="text-sm text-muted hover:text-ink transition-colors"
+             >Services</a>
+          
+          <a href="/contact.html"
+             class="text-sm text-muted hover:text-ink transition-colors"
+             >Contact</a>
+          
+        </nav>
+
+        <button id="menu-toggle" class="md:hidden text-ink p-2 -mr-2" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg id="icon-open" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+          <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+
+        <a href="https://wa.me/2349130789611" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-accent hover:bg-accentstrong transition-colors">Message on WhatsApp</a>
+      </div>
+
+      <div id="mobile-menu" class="md:hidden max-h-0 opacity-0 overflow-hidden px-[16px] bg-bg/95">
+        <nav class="flex flex-col py-2" aria-label="Mobile">
+          
+          <a href="/"
+             class="block py-2.5 text-sm text-muted hover:text-ink transition-colors">Home</a>
+          
+          <a href="/about.html"
+             class="block py-2.5 text-sm text-ink font-medium">About</a>
+          
+          <a href="/services.html"
+             class="block py-2.5 text-sm text-muted hover:text-ink transition-colors">Services</a>
+          
+          <a href="/contact.html"
+             class="block py-2.5 text-sm text-muted hover:text-ink transition-colors">Contact</a>
+          
+        </nav>
+      </div>
+    </header>
+
+    
+      
+    
+
+    <main id="main-content">
+      
+<div class="w-[min(1120px,calc(100%-32px))] mx-auto py-16 md:py-24">
+  <p class="eyebrow-path font-mono text-[0.8rem] text-accent mb-3.5">about</p>
+  <h1 class="font-display font-semibold text-[clamp(1.9rem,3.4vw,2.8rem)] leading-[1.1] mb-10">About</h1>
+
+  <div class="max-w-[680px] flex flex-col gap-5 mb-14 text-[0.98rem]">
+    <p class="text-muted">I'm Chekus Joseph. I build backend systems and web apps in Go and Python — usually Flask on the server side — and I do the front-end work myself too: Tailwind, vanilla JS, sometimes Flutter for mobile.</p>
+    <p class="text-muted">Most of what's on this site started as something I needed to solve myself: a portfolio that didn't repeat the same markup across six pages, a calculator that runs in the browser via WebAssembly, a task tracker I actually use. I like understanding a system down to the terminal — configuring Linux, chasing a broken PATH variable, working out why a service won't start — because that's usually where the real problems live, not in the UI.</p>
+    <p class="text-muted">I won't claim years of enterprise experience I don't have. What I can say: I finish what I start, I test what I ship, and if something's broken I'd rather dig into the actual cause than cover it up. If that's the kind of developer you're looking for, get in touch.</p>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-[860px]">
+    <div class="p-5">
+      <div class="w-9 h-9 grid place-items-center text-accent mb-4">
+        <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+      </div>
+      <h2 class="text-ink font-display font-semibold mb-1 text-sm">Full-Stack</h2>
+      <p class="text-muted text-sm">Front-end to backend, databases to APIs.</p>
+    </div>
+
+    <div class="p-5">
+      <div class="w-9 h-9 grid place-items-center text-accent mb-4">
+        <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+      </div>
+      <h2 class="text-ink font-display font-semibold mb-1 text-sm">Reliable</h2>
+      <p class="text-muted text-sm">Code built to hold up over time, not just ship.</p>
+    </div>
+
+    <div class="p-5">
+      <div class="w-9 h-9 grid place-items-center text-accent mb-4">
+        <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25z"/></svg>
+      </div>
+      <h2 class="text-ink font-display font-semibold mb-1 text-sm">Hands-On</h2>
+      <p class="text-muted text-sm">Comfortable in a Linux terminal or a UI.</p>
+    </div>
+  </div>
+</div>
+
+    <script src="/static/js/main.js" defer></script>
+    
+  </body>
+</html>

@@ -1,0 +1,170 @@
+h1, h2, h3, .font-display {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  letter-spacing: -0.015em;
+}
+
+/* Mono "path" style eyebrow labels */
+.eyebrow-path::before {
+  content: none;
+}
+
+.eyebrow-path {
+  display: none !important;
+}
+
+body {
+  background-color: #f5efe6 !important;
+  background-image:
+    radial-gradient(circle at 8% 0%, rgba(255, 122, 69, 0.08), transparent 30rem),
+    linear-gradient(135deg, #f5efe6 0%, #e9ded0 52%, #f8f4ed 100%) !important;
+  background-attachment: fixed;
+  padding-bottom: 4.5rem;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body [class~="text-accent"],
+body [class~="hover:text-accentstrong"],
+body [class~="hover:text-accentstrong"]:hover {
+  color: inherit !important;
+}
+
+.theme-picker {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid rgba(23, 32, 42, 0.14);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 8px 24px rgba(23, 32, 42, 0.12);
+  backdrop-filter: blur(12px);
+  font-size: 0.75rem;
+}
+
+.theme-picker label { color: #65717f; }
+.theme-picker select {
+  border: 0;
+  background: transparent;
+  color: #17202a;
+  font: inherit;
+  cursor: pointer;
+}
+
+body[data-theme="cream"] {
+  background-color: #f5efe6 !important;
+  background-image: linear-gradient(135deg, #f5efe6, #e9ded0 52%, #f8f4ed) !important;
+}
+
+body[data-theme="contrast"] {
+  background-color: #101010 !important;
+  background-image: linear-gradient(135deg, #101010, #242424 52%, #0a0a0a) !important;
+  color: #f5f5f5;
+}
+
+body[data-theme="contrast"] .theme-picker {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(24, 24, 24, 0.9);
+}
+
+body[data-theme="contrast"] .theme-picker label,
+body[data-theme="contrast"] .theme-picker select { color: #f5f5f5; }
+
+body[data-theme="navy"] {
+  background-color: #0b1220 !important;
+  background-image: linear-gradient(135deg, #0b1220, #101827 52%, #0b1220) !important;
+}
+
+@media (max-width: 480px) {
+  .theme-picker { right: 0.75rem; bottom: 0.75rem; }
+}
+
+body a {
+  color: #7dd3fc !important;
+}
+
+body a:hover {
+  color: #bae6fd !important;
+}
+
+.profile-photo-slot {
+  width: min(100%, 360px);
+  aspect-ratio: 4 / 5;
+  justify-self: end;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #111114;
+  color: #8c8c94;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.profile-photo-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 1023px) {
+  .profile-photo-slot {
+    justify-self: start;
+    width: min(100%, 280px);
+  }
+}
+
+[class~="bg-accent"],
+[class~="bg-accentdim"],
+[class~="bg-[#0d0d10]"],
+[class~="bg-[#ff5f57]"],
+[class~="bg-[#febc2e]"],
+[class~="bg-[#28c840]"],
+[class~="bg-white/5"],
+[class~="bg-white/10"],
+[class~="bg-ink/60"] {
+  background-color: transparent !important;
+}
+
+[class~="hover:bg-accentstrong"]:hover {
+  background-color: transparent !important;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+main { animation: fadeInUp 0.4s ease-out; }
+
+#mobile-menu { transition: max-height 0.2s ease, opacity 0.15s ease; }
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 50;
+  background: #4f8cff;
+  color: #09090b;
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 0.375rem 0;
+}
+.skip-link:focus { left: 0; }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #4f8cff;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main { animation: none; }
+  #mobile-menu { transition: none; }
+}
