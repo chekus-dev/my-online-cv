@@ -198,7 +198,7 @@ article[class~="border-borderstrong"]:hover {
 /* Page entrance */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 main { animation: fadeInUp 0.4s ease-out; }
@@ -246,3 +246,77 @@ select:focus-visible {
 
   main { animation: none; }
 }
+
+/* ---------- Blog post body (rendered Markdown) ---------- */
+.post-body {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgb(var(--mutedstrong));
+  overflow-wrap: anywhere;
+}
+
+.post-body > * + * { margin-top: 1.25rem; }
+
+.post-body h2,
+.post-body h3 {
+  color: rgb(var(--ink));
+  font-weight: 600;
+  line-height: 1.25;
+  margin-top: 2.5rem;
+}
+
+.post-body h2 { font-size: 1.5rem; }
+.post-body h3 { font-size: 1.2rem; margin-top: 2rem; }
+
+.post-body strong { color: rgb(var(--ink)); font-weight: 600; }
+
+.post-body a {
+  color: rgb(var(--accent));
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.post-body a:hover { color: rgb(var(--accentstrong)); }
+
+.post-body ul,
+.post-body ol { padding-left: 1.4rem; }
+.post-body ul { list-style: disc; }
+.post-body ol { list-style: decimal; }
+.post-body li + li { margin-top: 0.4rem; }
+
+.post-body blockquote {
+  border-left: 2px solid rgb(var(--accent));
+  padding-left: 1rem;
+  color: rgb(var(--muted));
+}
+
+.post-body code {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.88em;
+  background: rgb(var(--surface2));
+  border: 1px solid rgb(var(--borderstrong));
+  padding: 0.1em 0.35em;
+}
+
+.post-body pre {
+  background: rgb(var(--surface));
+  border: 1px solid rgb(var(--borderstrong));
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+.post-body pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: 0.85rem;
+}
+
+.post-body table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.post-body th,
+.post-body td { border: 1px solid rgb(var(--borderstrong)); padding: 0.5rem 0.75rem; text-align: left; }
+.post-body th { color: rgb(var(--ink)); background: rgb(var(--surface)); }
+
+.post-body hr { border: 0; border-top: 1px solid rgb(var(--borderstrong)); }
+.post-body img { max-width: 100%; height: auto; }

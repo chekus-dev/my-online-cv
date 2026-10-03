@@ -4,9 +4,12 @@ import time
 import urllib.error
 import urllib.request
 import json
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
+from pathlib import Path
 
-from flask import Flask, render_template, url_for
+import frontmatter
+import markdown
+from flask import Flask, abort, redirect, render_template, url_for
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -24,8 +27,11 @@ NAV_LINKS = [
     ("about", "About"),
     ("services", "Services"),
     ("portfolio", "Portfolio"),
+    ("blog", "Blog"),
     ("contact", "Contact"),
 ]
+
+POSTS_DIR = Path(__file__).resolve().parent / "posts"
 
 PROJECTS = [
     {
@@ -269,6 +275,48 @@ def get_github_stats(username=GITHUB_USERNAME):
         return None
 
 
+def _as_date(value):
+    """Front matter dates arrive as date objects or ISO strings; normalise both."""
+    if isinstance(value, datetime):
+        return value.date()
+    if isinstance(value, date):
+        return value
+    try:
+        return datetime.strptime(str(value), "%Y-%m-%d").date()
+    except ValueError:
+        return date.min
+
+
+def load_posts(include_drafts=False):
+    """Read every posts/*.md file, newest first.
+
+    A post needs `title` and `date` in its front matter. `summary` is optional.
+    Set `draft: true` to keep a post off the site while you write it. A broken
+    file is logged and skipped so one bad post can never take the blog down.
+    """
+    posts = []
+    for path in POSTS_DIR.glob("*.md"):
+        try:
+            post = frontmatter.load(path)
+            if post.get("draft") and not include_drafts:
+                continue
+            words = len(post.content.split())
+            posts.append({
+                "slug": path.stem,
+                "title": post["title"],
+                "date": _as_date(post["date"]),
+                "summary": post.get("summary", ""),
+                "reading_time": max(1, round(words / 200)),
+                "html": markdown.markdown(
+                    post.content,
+                    extensions=["fenced_code", "tables", "sane_lists"],
+                ),
+            })
+        except (KeyError, OSError, ValueError, TypeError) as e:
+            logger.warning("Skipping post %s: %s", path.name, e)
+    return sorted(posts, key=lambda p: p["date"], reverse=True)
+
+
 @app.context_processor
 def inject_globals():
     """Inject variables available to all templates."""
@@ -337,6 +385,27 @@ def services():
     return render_template("services.html", active_page="services")
 
 
+@app.route("/blog")
+def blog():
+    """Blog index — every published post, newest first."""
+    return render_template("blog.html", posts=load_posts(), active_page="blog")
+
+
+@app.route("/blog.html")
+def blog_html():
+    """The other pages end in .html, so people may guess it. One canonical URL: /blog."""
+    return redirect(url_for("blog"), code=301)
+
+
+@app.route("/blog/<slug>")
+def post(slug):
+    """A single blog post, looked up by its file name (without .md)."""
+    found = next((p for p in load_posts() if p["slug"] == slug), None)
+    if found is None:
+        abort(404)
+    return render_template("post.html", post=found, active_page="blog")
+
+
 @app.route("/contact")
 @app.route("/contact.html")
 def contact():
@@ -369,6 +438,7 @@ def robots():
 def sitemap():
     """Sitemap.xml for search engine indexing."""
     pages = [url_for(endpoint, _external=True) for endpoint, _ in NAV_LINKS]
+    pages += [url_for("post", slug=p["slug"], _external=True) for p in load_posts()]
     xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for loc in pages:
         xml.append(f"<url><loc>{loc}</loc></url>")
