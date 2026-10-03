@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* =========================================================
    site.css: design tokens, base styles, small components
 
@@ -196,21 +197,244 @@ article[class~="border-borderstrong"]:hover {
 }
 
 /* Page entrance */
+=======
+/* ── Typography ── */
+h1, h2, h3, .font-display {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  letter-spacing: -0.015em;
+}
+
+/* ── Eyebrow labels — styled, not hidden ── */
+.eyebrow-path {
+  display: block;
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+}
+
+.eyebrow-path::before {
+  content: none;
+}
+
+/* ── Base body — cream theme (default) ── */
+body {
+  background-color: #f5efe6;
+  background-image:
+    radial-gradient(circle at 8% 0%, rgba(255, 122, 69, 0.07), transparent 30rem),
+    linear-gradient(135deg, #f5efe6 0%, #e9ded0 52%, #f8f4ed 100%);
+  background-attachment: fixed;
+  padding-bottom: 4.5rem;
+  color: #17202a;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* ── Link colours — warm for cream theme ── */
+body a {
+  color: #b45309;
+}
+body a:hover {
+  color: #92400e;
+}
+
+/* ── Accent colour — map to warm amber on cream ── */
+body [class~="text-accent"] {
+  color: #b45309 !important;
+}
+body [class~="hover:text-accentstrong"]:hover {
+  color: #92400e !important;
+}
+
+/* ── CTA buttons — keep filled, use warm colour ── */
+[class~="bg-accent"] {
+  background-color: #b45309 !important;
+  color: #fff !important;
+}
+[class~="hover:bg-accentstrong"]:hover {
+  background-color: #92400e !important;
+}
+
+/* ── CJ monogram block ── */
+[class~="bg-accent"].\\[class\\~\\=\\"text-white\\"\\],
+.font-display[class~="bg-accent"] {
+  background-color: #b45309 !important;
+}
+
+/* ── Borders — warm tone ── */
+.border-\\[\\#1e293b\\] {
+  border-color: rgba(23, 32, 42, 0.15) !important;
+}
+
+/* ── Muted text — legible on warm bg ── */
+body [class~="text-muted"] {
+  color: #6b5c4e !important;
+}
+body [class~="text-mutedstrong"] {
+  color: #3d2e22 !important;
+}
+body [class~="text-ink"] {
+  color: #17202a !important;
+}
+
+/* ── Ghost buttons / bordered elements on cream ── */
+[class~="border-\\[\\#1e293b\\]"] {
+  border-color: rgba(23, 32, 42, 0.18) !important;
+}
+
+/* ── Profile photo slot ── */
+.profile-photo-slot {
+  width: min(100%, 360px);
+  aspect-ratio: 4 / 5;
+  justify-self: end;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #ddd0c2;
+  color: #8c7b6e;
+  font-size: 0.8rem;
+  text-align: center;
+}
+.profile-photo-slot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 1023px) {
+  .profile-photo-slot {
+    justify-self: start;
+    width: min(100%, 280px);
+  }
+}
+
+/* ══════════════════════════════════════════
+   THEME OVERRIDES
+   ══════════════════════════════════════════ */
+
+/* ── Cream (explicit) ── */
+body[data-theme="cream"] {
+  background-color: #f5efe6 !important;
+  background-image: linear-gradient(135deg, #f5efe6, #e9ded0 52%, #f8f4ed) !important;
+  color: #17202a;
+}
+body[data-theme="cream"] a                         { color: #b45309; }
+body[data-theme="cream"] a:hover                   { color: #92400e; }
+body[data-theme="cream"] [class~="text-accent"]    { color: #b45309 !important; }
+body[data-theme="cream"] [class~="bg-accent"]      { background-color: #b45309 !important; }
+body[data-theme="cream"] [class~="text-muted"]     { color: #6b5c4e !important; }
+body[data-theme="cream"] [class~="text-mutedstrong"]{ color: #3d2e22 !important; }
+body[data-theme="cream"] [class~="text-ink"]       { color: #17202a !important; }
+body[data-theme="cream"] .profile-photo-slot       { background: #ddd0c2; color: #8c7b6e; }
+
+/* ── Navy (original dark) ── */
+body[data-theme="navy"] {
+  background-color: #0b1220 !important;
+  background-image: linear-gradient(135deg, #0b1220, #101827 52%, #0b1220) !important;
+  color: #e2e8f0;
+}
+body[data-theme="navy"] a                          { color: #7dd3fc; }
+body[data-theme="navy"] a:hover                    { color: #bae6fd; }
+body[data-theme="navy"] [class~="text-accent"]     { color: #06b6d4 !important; }
+body[data-theme="navy"] [class~="hover:text-accentstrong"]:hover { color: #22d3ee !important; }
+body[data-theme="navy"] [class~="bg-accent"]       { background-color: #06b6d4 !important; color: #0b1220 !important; }
+body[data-theme="navy"] [class~="hover:bg-accentstrong"]:hover { background-color: #0891b2 !important; }
+body[data-theme="navy"] [class~="text-muted"]      { color: #64748b !important; }
+body[data-theme="navy"] [class~="text-mutedstrong"] { color: #94a3b8 !important; }
+body[data-theme="navy"] [class~="text-ink"]        { color: #e2e8f0 !important; }
+body[data-theme="navy"] .eyebrow-path              { color: #06b6d4; }
+body[data-theme="navy"] .profile-photo-slot        { background: #111827; color: #475569; }
+
+/* ── Contrast (near-black) ── */
+body[data-theme="contrast"] {
+  background-color: #101010 !important;
+  background-image: linear-gradient(135deg, #101010, #242424 52%, #0a0a0a) !important;
+  color: #f5f5f5;
+}
+body[data-theme="contrast"] a                      { color: #7dd3fc; }
+body[data-theme="contrast"] a:hover                { color: #bae6fd; }
+body[data-theme="contrast"] [class~="text-accent"] { color: #38bdf8 !important; }
+body[data-theme="contrast"] [class~="bg-accent"]   { background-color: #38bdf8 !important; color: #101010 !important; }
+body[data-theme="contrast"] [class~="text-muted"]  { color: #a3a3a3 !important; }
+body[data-theme="contrast"] [class~="text-mutedstrong"] { color: #d4d4d4 !important; }
+body[data-theme="contrast"] [class~="text-ink"]    { color: #f5f5f5 !important; }
+body[data-theme="contrast"] .eyebrow-path          { color: #38bdf8; }
+body[data-theme="contrast"] .profile-photo-slot    { background: #1a1a1a; color: #737373; }
+body[data-theme="contrast"] .theme-picker {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(24, 24, 24, 0.9);
+}
+body[data-theme="contrast"] .theme-picker label,
+body[data-theme="contrast"] .theme-picker select   { color: #f5f5f5; }
+
+/* ══════════════════════════════════════════
+   THEME PICKER WIDGET
+   ══════════════════════════════════════════ */
+.theme-picker {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid rgba(23, 32, 42, 0.14);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 8px 24px rgba(23, 32, 42, 0.12);
+  backdrop-filter: blur(12px);
+  font-size: 0.75rem;
+}
+.theme-picker label { color: #65717f; }
+.theme-picker select {
+  border: 0;
+  background: transparent;
+  color: #17202a;
+  font: inherit;
+  cursor: pointer;
+}
+@media (max-width: 480px) {
+  .theme-picker { right: 0.75rem; bottom: 0.75rem; }
+}
+
+/* ══════════════════════════════════════════
+   ANIMATIONS & MOTION
+   ══════════════════════════════════════════ */
+>>>>>>> 4e81ac5d17fd9b5ee912336ccfd0875ecec29ca9
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 main { animation: fadeInUp 0.4s ease-out; }
+<<<<<<< HEAD
 
 /* ---------- Accessibility ---------- */
+=======
+#mobile-menu { transition: max-height 0.2s ease, opacity 0.15s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  main { animation: none; }
+  #mobile-menu { transition: none; }
+}
+
+/* ══════════════════════════════════════════
+   ACCESSIBILITY
+   ══════════════════════════════════════════ */
+>>>>>>> 4e81ac5d17fd9b5ee912336ccfd0875ecec29ca9
 .skip-link {
   position: absolute;
   left: -9999px;
   top: 0;
   z-index: 50;
+<<<<<<< HEAD
   background: rgb(var(--accent));
   color: rgb(var(--on-accent));
+=======
+  background: #b45309;
+  color: #fff;
+>>>>>>> 4e81ac5d17fd9b5ee912336ccfd0875ecec29ca9
   font-weight: 600;
   padding: 0.75rem 1.25rem;
 }
@@ -220,6 +444,7 @@ main { animation: fadeInUp 0.4s ease-out; }
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
+<<<<<<< HEAD
 textarea:focus-visible,
 select:focus-visible {
   outline: 2px solid rgb(var(--accent));
@@ -245,4 +470,16 @@ select:focus-visible {
   }
 
   main { animation: none; }
+=======
+textarea:focus-visible {
+  outline: 2px solid #b45309;
+  outline-offset: 2px;
+}
+
+body[data-theme="navy"] a:focus-visible,
+body[data-theme="navy"] button:focus-visible,
+body[data-theme="contrast"] a:focus-visible,
+body[data-theme="contrast"] button:focus-visible {
+  outline-color: #38bdf8;
+>>>>>>> 4e81ac5d17fd9b5ee912336ccfd0875ecec29ca9
 }
