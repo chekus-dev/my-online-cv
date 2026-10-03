@@ -1,0 +1,23 @@
+<div class="w-[min(1120px,calc(100%-32px))] mx-auto mb-8">
+	<div class="flex flex-wrap items-center gap-x-8 gap-y-4 pb-6 border-b border-borderstrong/60">
+		<fieldset class="flex items-center gap-2 flex-wrap">
+			<legend class="font-mono text-[0.68rem] text-muted mr-1">account</legend>
+			<button type="button" class="filter-chip is-active" data-filter-group="account" data-filter-value="all">All</button>
+			{% for account in accounts %}
+			<button type="button" class="filter-chip" data-filter-group="account" data-filter-value="{{ account }}">{{ account }}</button>
+			{% endfor %}
+		</fieldset>
+
+		<fieldset class="flex items-center gap-2 flex-wrap">
+			<legend class="font-mono text-[0.68rem] text-muted mr-1">language</legend>
+			<button type="button" class="filter-chip is-active" data-filter-group="lang" data-filter-value="all">All</button>
+			{% for lang in languages %}
+			<button type="button" class="filter-chip" data-filter-group="lang" data-filter-value="{{ lang }}">
+				<span class="w-1.5 h-1.5 rounded-full inline-block mr-1.5" style="background-color: var(--lang-{{ lang | lower | replace(' ', '-') }}, var(--lang-other))"></span>{{ lang }}
+			</button>
+			{% endfor %}
+		</fieldset>
+
+		<p class="ml-auto font-mono text-[0.68rem] text-muted" id="filter-count" aria-live="polite"></p>
+	</div>
+</div>

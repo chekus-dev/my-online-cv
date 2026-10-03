@@ -1,0 +1,20 @@
+/*
+  Language accent tokens for portfolio project cards.
+  Add these custom properties to your existing :root block in site.css
+  (alongside your existing --color-bg, --color-ink, --color-accent, etc).
+  The dot next to each project's language badge and each filter chip
+  reads this variable by name: var(--lang-go), var(--lang-python), etc.
+  Any language not listed falls back to --lang-other.
+*/
+
+:root {
+	--lang-go: #00acd7;
+	--lang-python: #f2b94a;
+	--lang-javascript: #d9a441;
+	--lang-typescript: #4a86c9;
+	--lang-next.js: #6b6b6b;
+	--lang-react: #61dafb;
+	--lang-html/css: #d97757;
+	--lang-course-and-project-materials: #9b8f7a;
+	--lang-other: #9b8f7a;
+}

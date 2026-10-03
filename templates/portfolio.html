@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{% if active_page == 'home' %}Projects{% else %}Portfolio{% endif %} — Chekus Joseph</title>
+		<meta name="description" content="A README-guided portfolio of public projects across Chekus Joseph's GitHub accounts." />
+		<meta name="robots" content="index, follow" />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Chekus Joseph" />
+		<meta property="og:title" content="Portfolio — Chekus Joseph" />
+		<meta property="og:description" content="Projects across Go, Python, web development, APIs, education, creative tools, and more." />
+		<link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script src="/static/js/tailwind-config.js"></script>
+		<link rel="stylesheet" href="/static/css/site.css" />
+	</head>
+	<body class="m-0 font-sans text-ink leading-[1.65] bg-bg min-h-screen">
+		<a href="#main-content" class="skip-link">Skip to content</a>
+
+		<header class="sticky top-0 z-20 backdrop-blur-lg bg-bg/85">
+			<div class="w-[min(1120px,calc(100%-32px))] mx-auto flex items-center justify-between min-h-[64px] gap-4 flex-wrap">
+				<a href="/" class="flex items-center gap-2.5" aria-label="Chekus Joseph home">
+					<span class="w-8 h-8 grid place-items-center bg-accent text-white font-display font-bold text-sm">CJ</span>
+					<span class="hidden sm:inline text-sm font-medium text-mutedstrong">Chekus Joseph</span>
+				</a>
+				<nav class="hidden md:flex gap-7 flex-wrap" aria-label="Primary">
+					<a href="/" class="text-sm {% if active_page == 'home' %}text-ink font-medium{% else %}text-muted hover:text-ink transition-colors{% endif %}" {% if active_page == 'home' %}aria-current="page"{% endif %}>Home</a>
+					<a href="/about.html" class="text-sm text-muted hover:text-ink transition-colors">About</a>
+					<a href="/services.html" class="text-sm text-muted hover:text-ink transition-colors">Services</a>
+					<a href="/portfolio.html" class="text-sm {% if active_page == 'portfolio' %}text-ink font-medium{% else %}text-muted hover:text-ink transition-colors{% endif %}" {% if active_page == 'portfolio' %}aria-current="page"{% endif %}>Portfolio</a>
+					<a href="/contact.html" class="text-sm text-muted hover:text-ink transition-colors">Contact</a>
+				</nav>
+				<button id="menu-toggle" class="md:hidden text-ink p-2 -mr-2" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+					<svg id="icon-open" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+					<svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+				</button>
+				<a href="https://wa.me/2349130789611" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-accent hover:bg-accentstrong transition-colors">Message on WhatsApp</a>
+			</div>
+			<div id="mobile-menu" class="md:hidden max-h-0 opacity-0 overflow-hidden px-[16px] bg-bg/95">
+				<nav class="flex flex-col py-2" aria-label="Mobile">
+					<a href="/" class="block py-2.5 text-sm {% if active_page == 'home' %}text-ink font-medium{% else %}text-muted hover:text-ink transition-colors{% endif %}" {% if active_page == 'home' %}aria-current="page"{% endif %}>Home</a>
+					<a href="/about.html" class="block py-2.5 text-sm text-muted hover:text-ink transition-colors">About</a>
+					<a href="/services.html" class="block py-2.5 text-sm text-muted hover:text-ink transition-colors">Services</a>
+					<a href="/portfolio.html" class="block py-2.5 text-sm {% if active_page == 'portfolio' %}text-ink font-medium{% else %}text-muted hover:text-ink transition-colors{% endif %}" {% if active_page == 'portfolio' %}aria-current="page"{% endif %}>Portfolio</a>
+					<a href="/contact.html" class="block py-2.5 text-sm text-muted hover:text-ink transition-colors">Contact</a>
+				</nav>
+			</div>
+		</header>
+
+		<main id="main-content">
+			<section class="py-14 md:py-20">
+				<div class="w-[min(1120px,calc(100%-32px))] mx-auto">
+					<p class="eyebrow-path font-mono text-[0.8rem] text-accent mb-3.5">portfolio · github</p>
+					<div class="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_220px] items-center gap-8 mb-10">
+						<div class="max-w-[700px]">
+							<h1 class="font-display font-semibold text-[clamp(2rem,4vw,3rem)] leading-[1.1] mb-4">Projects across my GitHub accounts</h1>
+							<p class="text-muted text-[1.02rem]">README-guided summaries of public projects spanning Go and Python backends, web applications, APIs, creative tools, and learning projects.</p>
+							<div class="flex gap-4 flex-wrap text-sm font-medium mt-5">
+								<a href="https://github.com/chekus-dev" target="_blank" rel="noreferrer" class="text-accent hover:text-accentstrong">@chekus-dev &rarr;</a>
+								<a href="https://github.com/chokafor-bit" target="_blank" rel="noreferrer" class="text-accent hover:text-accentstrong">@chokafor-bit &rarr;</a>
+							</div>
+						</div>
+						<figure class="w-full max-w-[220px] aspect-[4/5] justify-self-start md:justify-self-end overflow-hidden bg-surface2">
+							<img src="/static/img/profile.jpg" alt="Portrait of Chekus Joseph" class="w-full h-full object-cover" />
+						</figure>
+					</div>
+
+					<div class="flex flex-wrap gap-x-6 gap-y-2 mb-8 text-sm">
+						<span class="text-ink font-medium">{{ github_projects|length }} public repositories</span>
+						<span class="text-muted">{{ github_projects|selectattr('upstream')|list|length }} forked projects</span>
+					</div>
+
+					<section class="border-y border-borderstrong py-8 md:py-10 mb-10" aria-labelledby="budget-tracker-title">
+						<div class="flex flex-wrap items-start justify-between gap-5 mb-7">
+							<div class="max-w-[760px]">
+								<p class="font-mono text-[0.7rem] text-accent mb-2">featured case study · Go / MySQL / Python</p>
+								<h2 id="budget-tracker-title" class="font-display font-semibold text-2xl md:text-[2rem] leading-tight mb-3">Budget Tracker</h2>
+								<p class="text-muted">A personal expense tracker that grew from a small database-connection experiment into a full-stack application. I built it one verified layer at a time, and documented the systems problems that had to be solved before the first feature could ship.</p>
+							</div>
+							<a href="https://github.com/chekus-dev/web-server-in-go-with-mysql-database" target="_blank" rel="noreferrer" class="text-sm font-medium text-accent hover:text-accentstrong">View source repository &rarr;</a>
+						</div>
+
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
+							<div>
+								<h3 class="font-display font-semibold text-base mb-3">What it does</h3>
+								<ul class="list-disc pl-5 space-y-2 text-sm text-muted">
+									<li>Records expenses with a description and amount, displayed in Naira (&#8358;), and shows the running total.</li>
+									<li>Adds and deletes expenses without reloading the page; the displayed total previews an amount while it is being typed.</li>
+									<li>Produces a separate spending summary, CSV export, and monthly chart from the same MySQL data.</li>
+								</ul>
+								<p class="text-sm text-muted mt-4">The app uses Go's <span class="font-mono">net/http</span>, <span class="font-mono">database/sql</span>, and <span class="font-mono">html/template</span>, with MySQL 8, Tailwind CSS, and vanilla JavaScript. The reporting companion uses Python, pandas, matplotlib, and mysql-connector-python. I intentionally used neither a frontend framework nor an ORM so I could work directly with HTTP, SQL, and DOM updates.</p>
+							</div>
+
+							<div>
+								<h3 class="font-display font-semibold text-base mb-3">The build, step by step</h3>
+								<ol class="list-decimal pl-5 space-y-3 text-sm text-muted">
+									<li><strong class="text-ink">Prove Go can reach MySQL.</strong> Started with a tiny Go program that only connected and printed a confirmation, before introducing application logic.</li>
+									<li><strong class="text-ink">Debug the local database installation.</strong> The initial install left <span class="font-mono">mysql-common</span> removed but not purged, and no <span class="font-mono">mysql.service</span> for systemd. After reinstalling, root authentication failed because MySQL 8.4 no longer enabled <span class="font-mono">mysql_native_password</span> by default, so setup moved to <span class="font-mono">caching_sha2_password</span>. A recovery-mode <span class="font-mono">mysqld</span> process also resisted termination; <span class="font-mono">dmesg</span> revealed AppArmor denying the signal. The eventual fix was a clean purge and reinitialization with <span class="font-mono">mysqld --initialize-insecure</span>, followed by a carefully verified password reset.</li>
+										<li><strong class="text-ink">Verify real database operations.</strong> Once the server was stable, inserted an expense and read it back from the command line, keeping database checks separate from HTTP.</li>
+									<li><strong class="text-ink">Build the HTTP layer incrementally.</strong> Added a standard-library Go server, first rendering the expense list, then adding form submission and database inserts route by route.</li>
+									<li><strong class="text-ink">Shape the interface for its use.</strong> Added responsive Tailwind styling, a muted emerald finance palette, and Naira currency formatting.</li>
+									<li><strong class="text-ink">Add browser interactions in verified stages.</strong> Implemented client-side checks, fetch-based submission with separate full-page and partial-HTML responses, a live total preview, and no-reload deletion.</li>
+									<li><strong class="text-ink">Read the same data from Python.</strong> Kept reporting as an independent script that prints summary statistics and exports CSV and a monthly spending chart, demonstrating that the data is usable outside the Go app.</li>
+								</ol>
+							</div>
+						</div>
+
+						<div class="border-t border-borderstrong mt-8 pt-5">
+							<h3 class="font-display font-semibold text-base mb-2">What I learned and what is next</h3>
+							<p class="text-sm text-muted">The longest debugging stretch came before application code: tracing package state, MySQL authentication changes, systemd behavior, and an AppArmor policy taught me to verify each system layer instead of assuming a failed connection was a Go bug. The project is still intentionally in progress: credentials remain hardcoded, automated tests and stronger server-side validation are needed, and categories, date filters, and a compiled Tailwind build are planned rather than shipped.</p>
+						</div>
+					</section>
+
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+						{% for project in github_projects %}
+						<article class="flex flex-col p-5 transition-colors">
+							<div class="flex items-start justify-between gap-4 mb-2">
+								<div>
+									<p class="font-mono text-[0.68rem] text-accent mb-1">{{ project.account }}</p>
+									<h2 class="font-display font-semibold text-base text-ink">{{ project.name }}</h2>
+								</div>
+								{% if project.upstream %}
+								<span class="text-xs text-muted text-right shrink-0">Forked project<br />Partner contribution</span>
+								{% endif %}
+							</div>
+							<p class="text-muted text-sm mb-4">{{ project.description }}</p>
+							<div class="flex items-center justify-between gap-3 mt-auto">
+								<span class="font-mono text-[0.68rem] text-muted">{{ project.language }}</span>
+								<div class="flex gap-3 text-xs font-medium">
+									{% if project.homepage %}<a href="{{ project.homepage }}" target="_blank" rel="noreferrer" class="text-accent hover:text-accentstrong">Live site</a>{% endif %}
+									{% if project.upstream %}<a href="https://github.com/{{ project.upstream }}" target="_blank" rel="noreferrer" class="text-muted hover:text-ink">Upstream</a>{% endif %}
+									<a href="{{ project.url }}" target="_blank" rel="noreferrer" class="text-accent hover:text-accentstrong">Repository &rarr;</a>
+								</div>
+							</div>
+						</article>
+						{% endfor %}
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="w-[min(1120px,calc(100%-32px))] mx-auto py-8">
+			<p class="text-muted text-sm">&copy; {{ current_year }} Chekus Joseph</p>
+		</footer>
+		<script src="/static/js/main.js" defer></script>
+	</body>
+</html>

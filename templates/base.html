@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{% block title %}Portfolio — Chekus Joseph{% endblock %}</title>
+		<meta name="description" content="{% block description %}A README-guided portfolio of public projects across Chekus Joseph's GitHub accounts.{% endblock %}" />
+		<meta name="robots" content="index, follow" />
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Chekus Joseph" />
+		<meta property="og:title" content="{% block og_title %}Portfolio — Chekus Joseph{% endblock %}" />
+		<meta property="og:description" content="{% block og_description %}Projects across Go, Python, web development, APIs, education, creative tools, and more.{% endblock %}" />
+		<link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+		<script src="https://cdn.tailwindcss.com"></script>
+		<script src="/static/js/tailwind-config.js"></script>
+		<link rel="stylesheet" href="/static/css/site.css" />
+		<link rel="stylesheet" href="/static/css/language-tokens.css" />
+		{% block extra_head %}{% endblock %}
+	</head>
+	<body class="m-0 font-sans text-ink leading-[1.65] bg-bg min-h-screen">
+		<a href="#main-content" class="skip-link">Skip to content</a>
+
+		{% set active_page = active_page | default('home') %}
+		{% include 'includes/header.html' %}
+
+		<main id="main-content">
+			{% block content %}{% endblock %}
+		</main>
+
+		{% include 'includes/footer.html' %}
+
+		<script src="/static/js/main.js" defer></script>
+	</body>
+</html>

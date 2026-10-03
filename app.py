@@ -1,4 +1,5 @@
 import logging
+import os
 import time
 import urllib.error
 import urllib.request
@@ -22,6 +23,7 @@ NAV_LINKS = [
     ("home", "Home"),
     ("about", "About"),
     ("services", "Services"),
+    ("portfolio", "Portfolio"),
     ("contact", "Contact"),
 ]
 
@@ -58,6 +60,125 @@ PROJECTS = [
     },
 ]
 
+GITHUB_PROJECTS = [
+    {
+        "account": "chekus-dev", "name": "ASCII Art Web", "language": "Go · HTML/CSS",
+        "description": "Turns text into ASCII art using Standard, Shadow, and Thinkertoy styles.",
+        "url": "https://github.com/chekus-dev/ascii-art-web", "upstream": "hmaach/ascii-art-web",
+    },
+    {
+        "account": "chekus-dev", "name": "ASCII Web", "language": "Go · HTML/CSS/JavaScript",
+        "description": "A browser-based ASCII art generator with multiple text-art styles.",
+        "url": "https://github.com/chekus-dev/ascii-web", "upstream": "01founders-crack/ascii-art-web",
+    },
+    {
+        "account": "chekus-dev", "name": "EJISCHOOL", "language": "Next.js · TypeScript · Go · PostgreSQL",
+        "description": "A software learning platform with tutorials, references, exercises, auth, and a Go API.",
+        "url": "https://github.com/chekus-dev/Ejischool", "upstream": "victorejike/Ejischool",
+    },
+    {
+        "account": "chekus-dev", "name": "Go HTTP Template Server", "language": "Go · net/http · html/template",
+        "description": "A small HTTP server demonstrating routing, method validation, error handling, and server-rendered HTML templates.",
+        "url": "https://github.com/chekus-dev/go-http-template-server",
+    },
+    {
+        "account": "chekus-dev", "name": "Learn Go HTTP Server", "language": "Go · Standard Library",
+        "description": "A learning server covering routes, GET/POST methods, status codes, query parameters, JSON, and 404/405 handling.",
+        "url": "https://github.com/chekus-dev/learn-go-http-server",
+    },
+    {
+        "account": "chekus-dev", "name": "Lem-in", "language": "Go · Graph Algorithms",
+        "description": "A student algorithm project that finds paths for ants through a colony using graph and path-search concepts.",
+        "url": "https://github.com/chekus-dev/lem-in", "upstream": "appak21/lem-in",
+    },
+    {
+        "account": "chekus-dev", "name": "9jaWonderPal (My Creative Partner)", "language": "React · Three.js · Node.js · Blender",
+        "description": "A voice-first creative studio where children describe ideas and build 3D worlds to explore with a parent.",
+        "url": "https://github.com/chekus-dev/my-creative-partner", "upstream": "asobuilds/my-creative-partner",
+        "homepage": "https://my-creative-partner.vercel.app",
+    },
+    {
+        "account": "chekus-dev", "name": "Online CV and Portfolio", "language": "Python · Flask · Tailwind CSS",
+        "description": "This Flask site, with service pages, responsive navigation, security headers, and GitHub project listings.",
+        "url": "https://github.com/chekus-dev/my-online-cv",
+    },
+    {
+        "account": "chekus-dev", "name": "Simple Go HTTP Server", "language": "Go · net/http",
+        "description": "A beginner-friendly server showing route registration, request handlers, and plain-text responses.",
+        "url": "https://github.com/chekus-dev/simple-http-server-in-golang",
+    },
+    {
+        "account": "chekus-dev", "name": "Todo App", "language": "Python · Flask · SQLAlchemy",
+        "description": "A Flask task manager with accounts, due dates, reminders, recurring tasks, tags, search, and JSON import/export.",
+        "url": "https://github.com/chekus-dev/todo-list-app",
+    },
+    {
+        "account": "chekus-dev", "name": "Updated Go HTTP Server", "language": "Go · net/http · encoding/json",
+        "description": "A JSON HTTP service with profile endpoints, health/readiness checks, request timeouts, and graceful shutdown.",
+        "url": "https://github.com/chekus-dev/updated-http-server-in-golang",
+    },
+    {
+        "account": "chekus-dev", "name": "Web ASCII Art", "language": "Go",
+        "description": "A Go repository; its README currently contains only the project title, so project details are not documented there.",
+        "url": "https://github.com/chekus-dev/web-ascii-art",
+    },
+    {
+        "account": "chekus-dev", "name": "Budget Tracker", "language": "Go · MySQL · JavaScript · Python",
+        "description": "A personal budget tracker with a Go HTTP server, MySQL persistence, no-reload expense management, and a separate Python reporting script.",
+        "url": "https://github.com/chekus-dev/web-server-in-go-with-mysql-database",
+    },
+    {
+        "account": "chokafor-bit", "name": "AdSense Bot Loader", "language": "Python · Selenium",
+        "description": "A browser-automation fork with Selenium scripts and proxy/worker configuration.",
+        "url": "https://github.com/chokafor-bit/Adsense-bot-loader", "upstream": "caseykingsley77/Adsense-bot-loader",
+    },
+    {
+        "account": "chokafor-bit", "name": "Branch Blockchain", "language": "JavaScript · Blockchain tooling",
+        "description": "A collection of blockchain learning exercises covering transactions, cryptography, smart contracts, tokens, NFTs, and DeFi.",
+        "url": "https://github.com/chokafor-bit/Branch-Blockchain", "upstream": "kuzikov/Branch-Blockchain",
+    },
+    {
+        "account": "chokafor-bit", "name": "Groupie Tracker", "language": "Go · HTML/CSS · REST API",
+        "description": "An artist and concert explorer showing artist details, members, dates, venues, and related locations.",
+        "url": "https://github.com/chokafor-bit/groupie-tracker", "upstream": "hmaach/groupie-tracker",
+    },
+    {
+        "account": "chokafor-bit", "name": "HTTP Server in Golang", "language": "Go · net/http",
+        "description": "A Go HTTP server repository; a README is not currently present, so its purpose is not documented there.",
+        "url": "https://github.com/chokafor-bit/http-server-in-golang",
+    },
+    {
+        "account": "chokafor-bit", "name": "My Text Editing Tool", "language": "Go",
+        "description": "A command-line text processor that converts numbers, adjusts casing, punctuation, quotation marks, and article usage.",
+        "url": "https://github.com/chokafor-bit/my-text-editing-tool",
+    },
+    {
+        "account": "chokafor-bit", "name": "Pro Go", "language": "Go",
+        "description": "Source examples accompanying Adam Freeman's Pro Go, covering Go language features and application examples.",
+        "url": "https://github.com/chokafor-bit/pro-go", "upstream": "Apress/pro-go",
+    },
+    {
+        "account": "chokafor-bit", "name": "01 Edu Public Curriculum", "language": "Course and project materials",
+        "description": "A fork of 01 Edu's public educational repository and its programming course materials.",
+        "url": "https://github.com/chokafor-bit/public", "upstream": "01-edu/public",
+    },
+    {
+        "account": "chokafor-bit", "name": "Quiz Server", "language": "Go",
+        "description": "A Go quiz-server repository; README content was unavailable during review, so feature details could not be verified.",
+        "url": "https://github.com/chokafor-bit/quiz-server", "upstream": "brownstyl/quiz-server",
+    },
+    {
+        "account": "chokafor-bit", "name": "Quize", "language": "Go tooling · JavaScript assets",
+        "description": "A quiz project repository with Go utilities for extracting questions, achievements, shop data, CSS, and JavaScript and generating HTML.",
+        "url": "https://github.com/chokafor-bit/quize",
+    },
+    {
+        "account": "chokafor-bit", "name": "The Codecrafters", "language": "Go",
+        "description": "A Go learning repository organized around Codecrafters-style exercises; no README was available during review.",
+        "url": "https://github.com/chokafor-bit/the-codecrafters",
+    },
+]
+
 SITE_STATS = [
     {"value": str(len(PROJECTS)), "label": "Shipped projects"},
     {"value": "Go · Flask", "label": "Primary stack"},
@@ -74,31 +195,40 @@ REPOS = [
 ]
 
 GITHUB_USERNAME = "chekus-dev"
-_github_cache = {"data": None, "fetched_at": 0}
+GITHUB_USERNAMES = (GITHUB_USERNAME, "chokafor-bit")
+_github_cache = {}
 GITHUB_CACHE_TTL = 60 * 60  # 1 hour — avoids hammering the unauthenticated API rate limit
 
 
 def _github_get(path):
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "User-Agent": "chekus-portfolio",
+    }
+    github_token = os.environ.get("GITHUB_TOKEN")
+    if github_token:
+        headers["Authorization"] = f"Bearer {github_token}"
     req = urllib.request.Request(
         f"https://api.github.com{path}",
-        headers={"Accept": "application/vnd.github+json", "User-Agent": "chekus-portfolio"},
+        headers=headers,
     )
     with urllib.request.urlopen(req, timeout=5) as resp:
         return json.loads(resp.read().decode())
 
 
-def get_github_stats():
+def get_github_stats(username=GITHUB_USERNAME):
     """Live, verifiable stats pulled from the GitHub API. Cached for an hour.
     Returns None on any failure so the template can render a graceful fallback
     instead of fabricating numbers or crashing the page.
     """
     now = time.time()
-    if _github_cache["data"] and (now - _github_cache["fetched_at"]) < GITHUB_CACHE_TTL:
-        return _github_cache["data"]
+    cached = _github_cache.get(username)
+    if cached and (now - cached["fetched_at"]) < GITHUB_CACHE_TTL:
+        return cached["data"]
 
     try:
-        profile = _github_get(f"/users/{GITHUB_USERNAME}")
-        repos = _github_get(f"/users/{GITHUB_USERNAME}/repos?per_page=100&sort=updated")
+        profile = _github_get(f"/users/{username}")
+        repos = _github_get(f"/users/{username}/repos?per_page=100&sort=updated")
 
         total_stars = sum(r.get("stargazers_count", 0) for r in repos)
         lang_counts = {}
@@ -118,6 +248,7 @@ def get_github_stats():
             "followers": profile.get("followers", 0),
             "total_stars": total_stars,
             "years_active": years_active,
+            "username": username,
             "top_languages": top_languages,
             "top_repos": [
                 {
@@ -129,10 +260,9 @@ def get_github_stats():
                 }
                 for r in top_repos
             ],
-            "profile_url": profile.get("html_url", f"https://github.com/{GITHUB_USERNAME}"),
+            "profile_url": profile.get("html_url", f"https://github.com/{username}"),
         }
-        _github_cache["data"] = data
-        _github_cache["fetched_at"] = now
+        _github_cache[username] = {"data": data, "fetched_at": now}
         return data
     except (urllib.error.URLError, TimeoutError, KeyError, ValueError, json.JSONDecodeError) as e:
         logger.warning("Could not fetch GitHub stats, falling back gracefully: %s", e)
@@ -141,11 +271,16 @@ def get_github_stats():
 
 @app.context_processor
 def inject_globals():
-    return {"nav_links": NAV_LINKS, "current_year": datetime.now(timezone.utc).year}
+    """Inject variables available to all templates."""
+    return {
+        "nav_links": NAV_LINKS,
+        "current_year": datetime.now(timezone.utc).year,
+    }
 
 
 @app.after_request
 def set_security_headers(response):
+    """Add security headers to all responses."""
     response.headers["X-Content-Type-Options"] = "nosniff"
     response.headers["X-Frame-Options"] = "DENY"
     response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
@@ -153,37 +288,76 @@ def set_security_headers(response):
     return response
 
 
+def _base_context():
+    """Shared context variables used across multiple routes."""
+    return {
+        "stats": SITE_STATS,
+        "featured": PROJECTS[0],
+        "github_accounts": [
+            {"username": username, "stats": get_github_stats(username)}
+            for username in GITHUB_USERNAMES
+        ],
+        "github_username": GITHUB_USERNAME,
+        "github_projects": GITHUB_PROJECTS,
+    }
+
+
+# ============================================================================
+# Routes
+# ============================================================================
+
 @app.route("/")
 def home():
-    return render_template(
-        "landing.html",
-        stats=SITE_STATS,
-        featured=PROJECTS[0],
-        github=get_github_stats(),
-        github_username=GITHUB_USERNAME,
-    )
+    """Home page — displays featured project and GitHub stats."""
+    context = _base_context()
+    context["active_page"] = "home"
+    return render_template("landing.html", **context)
+
+
+@app.route("/portfolio")
+@app.route("/portfolio.html")
+def portfolio():
+    """Portfolio page — displays all GitHub projects in a grid."""
+    context = _base_context()
+    context["active_page"] = "portfolio"
+    return render_template("portfolio.html", **context)
 
 
 @app.route("/about")
 @app.route("/about.html")
 def about():
-    return render_template("about.html")
+    """About page."""
+    return render_template("about.html", active_page="about")
 
 
 @app.route("/services")
 @app.route("/services.html")
 def services():
-    return render_template("services.html")
+    """Services page."""
+    return render_template("services.html", active_page="services")
 
 
 @app.route("/contact")
 @app.route("/contact.html")
 def contact():
-    return render_template("contact.html")
+    """Contact page."""
+    return render_template("contact.html", active_page="contact")
 
+
+@app.route("/200")
+@app.route("/200.html")
+def success_page():
+    """Success confirmation page."""
+    return render_template("200.html", active_page=None), 200
+
+
+# ============================================================================
+# Utility Routes
+# ============================================================================
 
 @app.route("/robots.txt")
 def robots():
+    """Robots.txt for search engine crawling directives."""
     return (
         "User-agent: *\nAllow: /\nSitemap: " + url_for("sitemap", _external=True) + "\n",
         200,
@@ -193,6 +367,7 @@ def robots():
 
 @app.route("/sitemap.xml")
 def sitemap():
+    """Sitemap.xml for search engine indexing."""
     pages = [url_for(endpoint, _external=True) for endpoint, _ in NAV_LINKS]
     xml = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for loc in pages:
@@ -201,14 +376,20 @@ def sitemap():
     return "\n".join(xml), 200, {"Content-Type": "application/xml"}
 
 
+# ============================================================================
+# Error Handlers
+# ============================================================================
+
 @app.errorhandler(404)
 def not_found(e):
-    return render_template("404.html"), 404
+    """Handle 404 Not Found errors."""
+    return render_template("404.html", active_page=None), 404
 
 
 @app.errorhandler(500)
 def server_error(e):
-    return render_template("500.html"), 500
+    """Handle 500 Internal Server Error."""
+    return render_template("500.html", active_page=None), 500
 
 
 if __name__ == "__main__":

@@ -1,0 +1,24 @@
+<section class="py-14 md:py-20">
+	<div class="w-[min(1120px,calc(100%-32px))] mx-auto">
+		<p class="eyebrow-path font-mono text-[0.8rem] text-accent mb-3.5">portfolio · github</p>
+		
+		<div class="grid grid-cols-1 md:grid-cols-[minmax(0,1fr)_220px] items-center gap-8 mb-10">
+			<div class="max-w-[700px]">
+				<h1 class="font-display font-semibold text-[clamp(2rem,4vw,3rem)] leading-[1.1] mb-4">Projects across my GitHub accounts</h1>
+				<p class="text-muted text-[1.02rem]">README-guided summaries of public projects spanning Go and Python backends, web applications, APIs, creative tools, and learning projects.</p>
+				<div class="flex gap-4 flex-wrap text-sm font-medium mt-5">
+					<a href="https://github.com/chekus-dev" target="_blank" rel="noreferrer" class="text-accent hover:text-accentstrong">@chekus-dev &rarr;</a>
+					<a href="https://github.com/chokafor-bit" target="_blank" rel="noreferrer" class="text-accent hover:text-accentstrong">@chokafor-bit &rarr;</a>
+				</div>
+			</div>
+			<figure class="w-full max-w-[220px] aspect-[4/5] justify-self-start md:justify-self-end overflow-hidden bg-surface2">
+				<img src="/static/img/profile.jpg" alt="Portrait of Chekus Joseph" class="w-full h-full object-cover" />
+			</figure>
+		</div>
+
+		<div class="flex flex-wrap gap-x-6 gap-y-2 mb-8 text-sm">
+			<span class="text-ink font-medium">{{ github_projects|length }} public repositories</span>
+			<span class="text-muted">{{ github_projects|selectattr('upstream')|list|length }} forked projects</span>
+		</div>
+	</div>
+</section>

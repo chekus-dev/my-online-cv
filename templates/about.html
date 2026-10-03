@@ -4,16 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About — Chekus Joseph</title>
-    <meta name="description" content="Learn more about Chekus Joseph — a full-stack web developer working across front-end, backend, databases, and Linux systems." />
+    <meta name="description" content="About Chekus Joseph: a self-taught, full-stack, AI-native engineer building secure web applications with Go, Python, Flask, PostgreSQL, and Tailwind." />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="http://localhost/about" />
+    <link rel="canonical" href="https://my-online-cv.onrender.com/about.html" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Chekus Joseph" />
-    <meta property="og:title" content="Chekus Joseph | Web Developer for Hire" />
-    <meta property="og:description" content="Full-stack web development — front end, backend, APIs, and system troubleshooting." />
-    <meta property="og:url" content="http://localhost/about" />
-    <meta property="og:image" content="http://localhost/static/img/og-cover.svg" />
+    <meta property="og:title" content="About Chekus Joseph | Full-Stack, AI-Native Engineer" />
+    <meta property="og:description" content="Self-taught full-stack engineer shipping secure web apps, Go services, and data-backed tools from spec to production." />
+    <meta property="og:url" content="https://my-online-cv.onrender.com/about.html" />
+    <meta property="og:image" content="https://my-online-cv.onrender.com/static/img/og-cover.svg" />
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg" />
@@ -51,6 +51,10 @@
           <a href="/services.html"
              class="text-sm text-muted hover:text-ink transition-colors"
              >Services</a>
+
+          <a href="/portfolio.html"
+             class="text-sm text-muted hover:text-ink transition-colors"
+             >Portfolio</a>
           
           <a href="/contact.html"
              class="text-sm text-muted hover:text-ink transition-colors"
@@ -78,6 +82,10 @@
           <a href="/services.html"
              class="block py-2.5 text-sm text-muted hover:text-ink transition-colors">Services</a>
           
+
+          <a href="/portfolio.html"
+             class="block py-2.5 text-sm text-muted hover:text-ink transition-colors">Portfolio</a>
+          
           <a href="/contact.html"
              class="block py-2.5 text-sm text-muted hover:text-ink transition-colors">Contact</a>
           
@@ -85,37 +93,44 @@
       </div>
     </header>
 
-    
-      
-    
-
     <main id="main-content">
       
 <div class="w-[min(1120px,calc(100%-32px))] mx-auto py-16 md:py-24">
   <p class="eyebrow-path font-mono text-[0.8rem] text-accent mb-3.5">about</p>
-  <h1 class="font-display font-semibold text-[clamp(1.9rem,3.4vw,2.8rem)] leading-[1.1] mb-10">About</h1>
+  <h1 class="font-display font-semibold text-[clamp(1.9rem,3.4vw,2.8rem)] leading-[1.1] mb-10">Self-taught, full-stack, and shipping.</h1>
 
   <div class="max-w-[680px] flex flex-col gap-5 mb-14 text-[0.98rem]">
-    <p class="text-muted">I'm Chekus Joseph. I build backend systems and web apps in Go and Python — usually Flask on the server side — and I do the front-end work myself too: Tailwind, vanilla JS, sometimes Flutter for mobile.</p>
-    <p class="text-muted">Most of what's on this site started as something I needed to solve myself: a portfolio that didn't repeat the same markup across six pages, a calculator that runs in the browser via WebAssembly, a task tracker I actually use. I like understanding a system down to the terminal — configuring Linux, chasing a broken PATH variable, working out why a service won't start — because that's usually where the real problems live, not in the UI.</p>
-    <p class="text-muted">I won't claim years of enterprise experience I don't have. What I can say: I finish what I start, I test what I ship, and if something's broken I'd rather dig into the actual cause than cover it up. If that's the kind of developer you're looking for, get in touch.</p>
+    <p class="text-muted">I'm Chekus Joseph, a full-stack, AI-native engineer working mainly in Go and Python. I build complete web products on my own: backends in Go and Flask, PostgreSQL databases, Tailwind interfaces, and deployment. I'm self-taught, and I learned by building real things and debugging them until they worked.</p>
+    <p class="text-muted">That habit shows in the work. I started with Python and Flask, then picked up Go to understand servers closer to the metal. When my local MySQL install broke while building my budget tracker, I traced it through systemd and down to a kernel-level AppArmor denial instead of working around it. I then moved the app to hosted PostgreSQL and rewrote the MySQL-specific SQL to match.</p>
+    <p class="text-muted">My strongest project is <a href="https://budget-tracker-1-svws.onrender.com/" target="_blank" rel="noreferrer" class="text-accent hover:text-accentstrong">Budget Tracker</a>, a live Go and PostgreSQL app with email password reset, per-user and per-IP brute-force limits, server-verified reCAPTCHA, soft delete with undo, embedded migrations, and unit tests. Alongside it are a Flask task manager, this portfolio site, and a series of standard-library Go HTTP servers that cover routing, JSON, readiness checks, timeouts, and graceful shutdown.</p>
+    <p class="text-muted">I build with AI in the loop: LLM tools help me plan, scaffold, debug, and review, and I read, test, and own every line that ships. I work in small, tested steps, document the setbacks as well as the wins, and keep each layer working before adding the next. My longer-term goal is to build my own products and, eventually, a company.</p>
+    <p class="text-muted">Across my two GitHub accounts I also build smaller tools, including a Go text processor and ASCII-art web apps, and I've explored mobile with Kotlin and Flutter. My repositories include original projects and clearly identified forks, such as a Go artist-and-concert tracker where I contributed as a partner. I link upstream projects on the portfolio so the distinction is visible.</p>
   </div>
 
-  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-[860px]">
+  <div class="border-t border-borderstrong pt-8 max-w-[680px] mb-14">
+    <p class="font-mono text-[0.68rem] text-accent mb-3">currently</p>
+    <ul class="space-y-2 text-sm text-muted list-disc pl-5">
+      <li>Hardening and extending Budget Tracker: more tests, sturdier validation, shared rate-limit storage</li>
+      <li>Going deeper on Go: concurrency, APIs, and WebAssembly</li>
+      <li>Building products of my own, with client work alongside</li>
+    </ul>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-[1000px] mb-12">
     <div class="p-5">
       <div class="w-9 h-9 grid place-items-center text-accent mb-4">
         <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
       </div>
       <h2 class="text-ink font-display font-semibold mb-1 text-sm">Full-Stack</h2>
-      <p class="text-muted text-sm">Front-end to backend, databases to APIs.</p>
+      <p class="text-muted text-sm">Go and Flask services, PostgreSQL, APIs, and Tailwind interfaces.</p>
     </div>
 
     <div class="p-5">
       <div class="w-9 h-9 grid place-items-center text-accent mb-4">
         <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
       </div>
-      <h2 class="text-ink font-display font-semibold mb-1 text-sm">Reliable</h2>
-      <p class="text-muted text-sm">Code built to hold up over time, not just ship.</p>
+      <h2 class="text-ink font-display font-semibold mb-1 text-sm">Secure &amp; Reliable</h2>
+      <p class="text-muted text-sm">Rate limiting, safe SQL, tests, and operational details are part of the build.</p>
     </div>
 
     <div class="p-5">
@@ -123,12 +138,27 @@
         <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25z"/></svg>
       </div>
       <h2 class="text-ink font-display font-semibold mb-1 text-sm">Hands-On</h2>
-      <p class="text-muted text-sm">Comfortable in a Linux terminal or a UI.</p>
+      <p class="text-muted text-sm">Linux administration, server setup, and debugging to the root cause.</p>
     </div>
+
+    <div class="p-5">
+      <div class="w-9 h-9 grid place-items-center text-accent mb-4">
+        <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z"/></svg>
+      </div>
+      <h2 class="text-ink font-display font-semibold mb-1 text-sm">AI-Native</h2>
+      <p class="text-muted text-sm">AI speeds up the work. I verify everything before it ships.</p>
+    </div>
+  </div>
+
+  <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+    <a href="/portfolio.html" class="text-accent hover:text-accentstrong">See the portfolio &rarr;</a>
+    <a href="/contact.html" class="text-accent hover:text-accentstrong">Get in touch &rarr;</a>
+    <a href="https://github.com/chekus-dev" target="_blank" rel="noreferrer" class="text-muted hover:text-ink">@chekus-dev on GitHub</a>
   </div>
 </div>
 
     <script src="/static/js/main.js" defer></script>
     
+    </main>
   </body>
 </html>

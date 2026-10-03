@@ -1,98 +1,138 @@
-h1, h2, h3, .font-display {
-  font-family: "Space Grotesk", "Inter", sans-serif;
-  letter-spacing: -0.015em;
+/* =========================================================
+   site.css: design tokens, base styles, small components
+
+   Colours are stored as RGB channels so Tailwind can apply
+   opacity (bg-bg/85). tailwind-config.js maps the Tailwind
+   colour names (bg, ink, muted, accent...) to these variables,
+   so one change here restyles the whole site.
+   ========================================================= */
+
+/* ---------- Tokens: default theme (dark, single orange accent) ---------- */
+:root {
+  color-scheme: dark;
+  --bg: 10 10 11;
+  --surface: 18 18 20;
+  --surface2: 27 27 31;
+  --ink: 245 245 244;
+  --muted: 161 161 170;
+  --mutedstrong: 212 212 216;
+  --borderstrong: 45 45 51;
+  --accent: 249 115 22;
+  --accentstrong: 251 146 60;
+  --accentdim: 67 30 12;
+  --on-accent: 10 10 11; /* text colour placed on accent backgrounds */
 }
 
-/* Mono "path" style eyebrow labels */
-.eyebrow-path::before {
-  content: none;
-}
-
-.eyebrow-path {
-  display: none !important;
-}
-
-body {
-  background-color: #f5efe6 !important;
-  background-image:
-    radial-gradient(circle at 8% 0%, rgba(255, 122, 69, 0.08), transparent 30rem),
-    linear-gradient(135deg, #f5efe6 0%, #e9ded0 52%, #f8f4ed 100%) !important;
-  background-attachment: fixed;
-  padding-bottom: 4.5rem;
-}
-
-html,
-body {
-  overflow-x: hidden;
-}
-
-body [class~="text-accent"],
-body [class~="hover:text-accentstrong"],
-body [class~="hover:text-accentstrong"]:hover {
-  color: inherit !important;
-}
-
-.theme-picker {
-  position: fixed;
-  right: 1rem;
-  bottom: 1rem;
-  z-index: 30;
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.45rem 0.65rem;
-  border: 1px solid rgba(23, 32, 42, 0.14);
-  background: rgba(255, 255, 255, 0.88);
-  box-shadow: 0 8px 24px rgba(23, 32, 42, 0.12);
-  backdrop-filter: blur(12px);
-  font-size: 0.75rem;
-}
-
-.theme-picker label { color: #65717f; }
-.theme-picker select {
-  border: 0;
-  background: transparent;
-  color: #17202a;
-  font: inherit;
-  cursor: pointer;
-}
-
+/* ---------- Optional themes (set via body[data-theme]) ---------- */
 body[data-theme="cream"] {
-  background-color: #f5efe6 !important;
-  background-image: linear-gradient(135deg, #f5efe6, #e9ded0 52%, #f8f4ed) !important;
+  color-scheme: light;
+  --bg: 247 243 236;
+  --surface: 255 255 255;
+  --surface2: 238 231 220;
+  --ink: 23 32 42;
+  --muted: 101 113 127;
+  --mutedstrong: 55 65 81;
+  --borderstrong: 214 205 192;
+  --accent: 194 65 12;
+  --accentstrong: 154 52 9;
+  --accentdim: 253 230 214;
+  --on-accent: 255 255 255;
 }
 
 body[data-theme="contrast"] {
-  background-color: #101010 !important;
-  background-image: linear-gradient(135deg, #101010, #242424 52%, #0a0a0a) !important;
-  color: #f5f5f5;
+  color-scheme: dark;
+  --bg: 0 0 0;
+  --surface: 12 12 12;
+  --surface2: 24 24 24;
+  --ink: 255 255 255;
+  --muted: 212 212 216;
+  --mutedstrong: 255 255 255;
+  --borderstrong: 113 113 122;
+  --accent: 251 146 60;
+  --accentstrong: 253 186 116;
+  --on-accent: 0 0 0;
 }
-
-body[data-theme="contrast"] .theme-picker {
-  border-color: rgba(255, 255, 255, 0.18);
-  background: rgba(24, 24, 24, 0.9);
-}
-
-body[data-theme="contrast"] .theme-picker label,
-body[data-theme="contrast"] .theme-picker select { color: #f5f5f5; }
 
 body[data-theme="navy"] {
-  background-color: #0b1220 !important;
-  background-image: linear-gradient(135deg, #0b1220, #101827 52%, #0b1220) !important;
+  color-scheme: dark;
+  --bg: 11 18 32;
+  --surface: 16 24 39;
+  --surface2: 22 33 52;
+  --ink: 241 245 249;
+  --muted: 148 163 184;
+  --mutedstrong: 203 213 225;
+  --borderstrong: 51 65 85;
 }
 
-@media (max-width: 480px) {
-  .theme-picker { right: 0.75rem; bottom: 0.75rem; }
+/* ---------- Base ---------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* keeps #anchors clear of the sticky header */
+  -webkit-text-size-adjust: 100%;
 }
 
-body a {
-  color: #7dd3fc !important;
+body {
+  background-color: rgb(var(--bg));
+  color: rgb(var(--ink));
+  padding-bottom: 4.5rem; /* room for the fixed theme picker */
+  overflow-x: clip; /* unlike "hidden", this does not break the sticky header */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-body a:hover {
-  color: #bae6fd !important;
+h1, h2, h3, .font-display {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
 }
 
+p { text-wrap: pretty; }
+
+::selection {
+  background: rgb(var(--accent) / 0.35);
+  color: rgb(var(--ink));
+}
+
+/* ---------- Components ---------- */
+
+/* Header: consistent divider on every page */
+header.sticky {
+  border-bottom: 1px solid rgb(var(--borderstrong));
+}
+
+/* Small mono section label ("about", "services", ...) */
+body .eyebrow-path {
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
+}
+
+/* Interactive polish */
+a,
+button {
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+/* Primary buttons and the logo mark: guaranteed readable text on the accent */
+body .bg-accent {
+  color: rgb(var(--on-accent));
+}
+
+/* Outlined buttons pick up the accent on hover */
+a[class~="border-borderstrong"]:hover {
+  border-color: rgb(var(--accent));
+}
+
+/* Cards */
+article[class~="border-borderstrong"] {
+  transition: border-color 0.15s ease;
+}
+
+article[class~="border-borderstrong"]:hover {
+  border-color: rgb(var(--accent) / 0.6);
+}
+
+/* Profile photo */
 .profile-photo-slot {
   width: min(100%, 360px);
   aspect-ratio: 4 / 5;
@@ -100,8 +140,8 @@ body a:hover {
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: #111114;
-  color: #8c8c94;
+  background: rgb(var(--surface2));
+  color: rgb(var(--muted));
   font-size: 0.8rem;
   text-align: center;
 }
@@ -119,52 +159,90 @@ body a:hover {
   }
 }
 
-[class~="bg-accent"],
-[class~="bg-accentdim"],
-[class~="bg-[#0d0d10]"],
-[class~="bg-[#ff5f57]"],
-[class~="bg-[#febc2e]"],
-[class~="bg-[#28c840]"],
-[class~="bg-white/5"],
-[class~="bg-white/10"],
-[class~="bg-ink/60"] {
-  background-color: transparent !important;
+/* Theme picker */
+.theme-picker {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid rgb(var(--borderstrong));
+  background: rgb(var(--surface) / 0.92);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.18);
+  backdrop-filter: blur(12px);
+  font-size: 0.75rem;
 }
 
-[class~="hover:bg-accentstrong"]:hover {
-  background-color: transparent !important;
+.theme-picker label { color: rgb(var(--muted)); }
+
+.theme-picker select {
+  border: 0;
+  background: transparent;
+  color: rgb(var(--ink));
+  font: inherit;
+  cursor: pointer;
 }
 
+@media (max-width: 480px) {
+  .theme-picker { right: 0.75rem; bottom: 0.75rem; }
+}
+
+/* Mobile menu */
+#mobile-menu {
+  transition: max-height 0.2s ease, opacity 0.15s ease;
+}
+
+/* Page entrance */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
 main { animation: fadeInUp 0.4s ease-out; }
 
-#mobile-menu { transition: max-height 0.2s ease, opacity 0.15s ease; }
-
+/* ---------- Accessibility ---------- */
 .skip-link {
   position: absolute;
   left: -9999px;
   top: 0;
   z-index: 50;
-  background: #4f8cff;
-  color: #09090b;
+  background: rgb(var(--accent));
+  color: rgb(var(--on-accent));
   font-weight: 600;
   padding: 0.75rem 1.25rem;
-  border-radius: 0 0 0.375rem 0;
 }
+
 .skip-link:focus { left: 0; }
 
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
-textarea:focus-visible {
-  outline: 2px solid #4f8cff;
-  outline-offset: 2px;
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid rgb(var(--accent));
+  outline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   main { animation: none; }
-  #mobile-menu { transition: none; }
+  a, button, article, #mobile-menu { transition: none; }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  header.sticky,
+  .theme-picker,
+  .skip-link { display: none !important; }
+
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    padding-bottom: 0;
+  }
+
+  main { animation: none; }
 }
