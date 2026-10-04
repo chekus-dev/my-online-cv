@@ -81,3 +81,35 @@ gunicorn -w 4 -b 0.0.0.0:8000 wsgi:app
 ---
 
 ## 🗂️ Project Structure
+
+---
+
+## 🧭 Routes
+
+| URL | Page |
+| --- | --- |
+| `/` | Home |
+| `/about` | About |
+| `/services` | Services |
+| `/portfolio` | Portfolio and GitHub project index |
+| `/contact` | Contact |
+| `/200.html` | Request-success page (HTTP 200) |
+| `/robots.txt` | Crawler instructions |
+| `/sitemap.xml` | Sitemap |
+
+---
+
+## 🔗 GitHub Project References
+
+The home page summarizes all **23 public repositories** reviewed across both accounts. Project descriptions are drawn from each repository's README; where a README is missing or contains only a title, the page states that rather than inferring a description.
+
+Forked repositories are presented as such, with the upstream repository linked. The portfolio labels the user's role on these forks as a **partner contribution** — this does not claim authorship of the upstream project.
+
+The project index spans Go HTTP servers and template rendering, JSON APIs, Flask applications, a task manager, a voice-first 3D creative studio, an education platform, ASCII-art tools, a text processor, an artist/concert explorer, blockchain learning exercises, and graph-algorithm coursework.
+
+<div align="center">
+<br/>
+
+[![Live Site](https://img.shields.io/badge/🌍_Visit_the_Live_Site-f97316?style=for-the-badge)](https://my-online-cv-4.onrender.com/)
+
+</div>
