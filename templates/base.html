@@ -1,37 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>{% block title %}Portfolio — Chekus Joseph{% endblock %}</title>
-		<meta name="description" content="{% block description %}A README-guided portfolio of public projects across Chekus Joseph's GitHub accounts.{% endblock %}" />
-		<meta name="robots" content="index, follow" />
-		<meta property="og:type" content="website" />
-		<meta property="og:site_name" content="Chekus Joseph" />
-		<meta property="og:title" content="{% block og_title %}Portfolio — Chekus Joseph{% endblock %}" />
-		<meta property="og:description" content="{% block og_description %}Projects across Go, Python, web development, APIs, education, creative tools, and more.{% endblock %}" />
-		<link rel="icon" type="image/svg+xml" href="/static/img/favicon.svg" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-		<script src="https://cdn.tailwindcss.com"></script>
-		<script src="/static/js/tailwind-config.js"></script>
-		<link rel="stylesheet" href="/static/css/site.css" />
-		<link rel="stylesheet" href="/static/css/language-tokens.css" />
-		{% block extra_head %}{% endblock %}
-	</head>
-	<body class="m-0 font-sans text-ink leading-[1.65] bg-bg min-h-screen">
-		<a href="#main-content" class="skip-link">Skip to content</a>
+<header class="sticky top-0 z-40 bg-bg/85 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+    <a href="{{ url_for('home') }}" class="flex items-center gap-3">
+      <span class="bg-accent px-2 py-1 text-sm font-bold">CJ</span>
+      <span class="text-sm">Chekus Joseph</span>
+    </a>
 
-		{% set active_page = active_page | default('home') %}
-		{% include 'includes/header.html' %}
+    <!-- Desktop nav -->
+    <nav class="hidden items-center gap-6 text-sm md:flex" aria-label="Main">
+      <a href="{{ url_for('home') }}" class="text-ink">Home</a>
+      <a href="{{ url_for('about') }}" class="text-muted hover:text-ink">About</a>
+      <a href="{{ url_for('services') }}" class="text-muted hover:text-ink">Services</a>
+      <a href="{{ url_for('portfolio') }}" class="text-muted hover:text-ink">Portfolio</a>
+      <a href="{{ url_for('blog') }}" class="text-muted hover:text-ink">Blog</a>
+      <a href="{{ url_for('contact') }}" class="text-muted hover:text-ink">Contact</a>
+    </nav>
 
-		<main id="main-content">
-			{% block content %}{% endblock %}
-		</main>
+    <!-- Hamburger (mobile only) -->
+    <button id="menu-toggle" type="button" class="p-2 md:hidden"
+            aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false">
+      <svg id="icon-open" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="icon-close" class="hidden h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
 
-		{% include 'includes/footer.html' %}
-
-		<script src="/static/js/main.js" defer></script>
-	</body>
-</html>
+  <!-- Mobile menu: same six links -->
+  <nav id="mobile-menu" class="hidden border-t border-borderstrong md:hidden" aria-label="Mobile">
+    <div class="mx-auto flex max-w-6xl flex-col px-4 py-2 text-sm">
+      <a href="{{ url_for('home') }}" class="py-3 text-ink">Home</a>
+      <a href="{{ url_for('about') }}" class="py-3 text-muted">About</a>
+      <a href="{{ url_for('services') }}" class="py-3 text-muted">Services</a>
+      <a href="{{ url_for('portfolio') }}" class="py-3 text-muted">Portfolio</a>
+      <a href="{{ url_for('blog') }}" class="py-3 text-muted">Blog</a>
+      <a href="{{ url_for('contact') }}" class="py-3 text-muted">Contact</a>
+    </div>
+  </nav>
+</header>
