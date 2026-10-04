@@ -1,5 +1,5 @@
 # Chekus Joseph - Online CV
-<img width="1300" height="3551" alt="image" src="https://github.com/user-attachments/assets/a7879973-8397-4e94-b65d-6174640bc23c" />
+<img width="1317" height="597" alt="image" src="https://github.com/user-attachments/assets/6f905ebe-835b-4fbd-ae7d-f25da76fa335" />
 
 A Flask-powered personal portfolio and online CV. The site includes home, about,
 services, portfolio, and contact pages, plus custom 404 and 500 error pages.
