@@ -1,54 +1,38 @@
-{% set ep = request.endpoint %}
-{% macro nav_link(endpoint, label, mobile=False) %}
-  <a href="{{ url_for(endpoint) }}"
-     class="{{ 'py-3 block' if mobile else '' }} {{ 'text-ink font-semibold' if ep == endpoint else 'text-muted hover:text-ink' }}"
-     {% if ep == endpoint %}aria-current="page"{% endif %}>{{ label }}</a>
-{% endmacro %}
+<header class="sticky top-0 z-20 backdrop-blur-lg bg-bg/85">
+	<div class="w-[min(1120px,calc(100%-32px))] mx-auto flex items-center justify-between min-h-[64px] gap-4 flex-wrap">
+		<a href="/" class="flex items-center gap-2.5" aria-label="Chekus Joseph home">
+			<span class="w-8 h-8 grid place-items-center bg-accent text-white font-display font-bold text-sm">CJ</span>
+			<span class="hidden sm:inline text-sm font-medium text-mutedstrong">Chekus Joseph</span>
+		</a>
 
-<header class="sticky top-0 z-40 bg-bg/85 backdrop-blur">
-  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
-    <a href="{{ url_for('home') }}" class="flex items-center gap-3">
-      <span class="bg-accent px-2 py-1 text-sm font-bold">CJ</span>
-      <span class="text-sm">Chekus Joseph</span>
-    </a>
+		<!-- Desktop Navigation -->
+		<nav class="hidden md:flex gap-7 flex-wrap" aria-label="Primary">
+			<a href="/" class="text-sm {% if active_page == 'home' %}text-ink font-medium{% else %}text-muted hover:text-ink transition-colors{% endif %}" {% if active_page == 'home' %}aria-current="page"{% endif %}>Home</a>
+			<a href="/about.html" class="text-sm text-muted hover:text-ink transition-colors">About</a>
+			<a href="/services.html" class="text-sm text-muted hover:text-ink transition-colors">Services</a>
+			<a href="/blog.html" class="text-sm text-muted hover:text-ink transition-colors">Blog</a>
+			<a href="/portfolio.html" class="text-sm {% if active_page == 'portfolio' %}text-ink font-medium{% else %}text-muted hover:text-ink transition-colors{% endif %}" {% if active_page == 'portfolio' %}aria-current="page"{% endif %}>Portfolio</a>
+			<a href="/contact.html" class="text-sm text-muted hover:text-ink transition-colors">Contact</a>
+		</nav>
 
-    <!-- Desktop: centered links -->
-    <nav class="hidden items-center gap-6 text-sm md:flex" aria-label="Main">
-      {{ nav_link('home', 'Home') }}
-      {{ nav_link('about', 'About') }}
-      {{ nav_link('services', 'Services') }}
-      {{ nav_link('portfolio', 'Portfolio') }}
-      {{ nav_link('blog', 'Blog') }}
-      {{ nav_link('contact', 'Contact') }}
-    </nav>
+		<!-- Mobile Menu Toggle -->
+		<button id="menu-toggle" class="md:hidden text-ink p-2 -mr-2" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+			<svg id="icon-open" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+			<svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+		</button>
 
-    <div class="flex items-center gap-2">
-      <!-- Desktop CTA: keep your real WhatsApp href here -->
-      <a href="YOUR_EXISTING_WHATSAPP_LINK"
-         class="bg-accent hidden px-4 py-2 text-sm font-medium md:inline-block">
-        Message on WhatsApp
-      </a>
+		<!-- CTA Button -->
+		<a href="https://wa.me/2349130789611" target="_blank" rel="noopener" class="hidden sm:inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-accent hover:bg-accentstrong transition-colors">Message on WhatsApp</a>
+	</div>
 
-      <!-- Hamburger (mobile only) -->
-      <button id="menu-toggle" type="button" class="p-2 md:hidden"
-              aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false">
-        <svg id="icon-open" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-        <svg id="icon-close" class="hidden h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile menu: same links plus the WhatsApp button -->
-  <nav id="mobile-menu" class="hidden border-t border-borderstrong md:hidden" aria-label="Mobile">
-    <div class="mx-auto flex max-w-6xl flex-col px-4 py-2 text-sm">
-      {{ nav_link('home', 'Home', True) }}
-      {{ nav_link('about', 'About', True) }}
-      {{ nav_link('services', 'Services', True) }}
-      {{ nav_link('portfolio', 'Portfolio', True) }}
-      {{ nav_link('blog', 'Blog', True) }}
-      {{ nav_link('contact', 'Contact', True) }}
-      <a href="YOUR_EXISTING_WHATSAPP_LINK"
-         class="bg-accent my-3 px-4 py-3 text-center font-medium">Message on WhatsApp</a>
-    </div>
-  </nav>
+	<!-- Mobile Navigation -->
+	<div id="mobile-menu" class="md:hidden max-h-0 opacity-0 overflow-hidden px-[16px] bg-bg/95">
+		<nav class="flex flex-col py-2" aria-label="Mobile">
+			<a href="/" class="block py-2.5 text-sm {% if active_page == 'home' %}text-ink font-medium{% else %}text-muted hover:text-ink transition-colors{% endif %}" {% if active_page == 'home' %}aria-current="page"{% endif %}>Home</a>
+			<a href="/about.html" class="block py-2.5 text-sm text-muted hover:text-ink transition-colors">About</a>
+			<a href="/services.html" class="block py-2.5 text-sm text-muted hover:text-ink transition-colors">Services</a>
+			<a href="/portfolio.html" class="block py-2.5 text-sm {% if active_page == 'portfolio' %}text-ink font-medium{% else %}text-muted hover:text-ink transition-colors{% endif %}" {% if active_page == 'portfolio' %}aria-current="page"{% endif %}>Portfolio</a>
+			<a href="/contact.html" class="block py-2.5 text-sm text-muted hover:text-ink transition-colors">Contact</a>
+		</nav>
+	</div>
 </header>
