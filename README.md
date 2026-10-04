@@ -1,18 +1,13 @@
 <div align="center">
 
-# 💼 Chekus Joseph — Online CV
+# 💼 Chekus Joseph — Portfolio Site
 
-**A data-driven portfolio, built on Flask and shipped to production.**
-
-<img width="1317" height="597" alt="Site screenshot" src="https://github.com/user-attachments/assets/6f905ebe-835b-4fbd-ae7d-f25da76fa335" style="border-radius: 12px;" />
-
-<br/><br/>
+**A Flask + Tailwind portfolio, rebuilt from six duplicated HTML files into one data-driven app.**
 
 ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
 ![Jinja](https://img.shields.io/badge/Jinja-B41717?style=for-the-badge&logo=jinja&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/Tailwind-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![Gunicorn](https://img.shields.io/badge/Gunicorn-499848?style=for-the-badge&logo=gunicorn&logoColor=white)
-![Render](https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=black)
 
 [![Live Site](https://img.shields.io/badge/▶_Live_Site-my--online--cv-f97316?style=for-the-badge)](https://my-online-cv-4.onrender.com/)
 
@@ -20,20 +15,21 @@
 
 <br/>
 
-A Flask-powered personal portfolio and online CV — home, about, services, portfolio, and contact pages, plus custom 404 and 500 error pages. Not a static template: it pulls live data from GitHub's API to build the project index on every cache cycle.
+## 🔄 What Changed From the Original
 
----
-
-## ✨ Features
-
-- 📱 Responsive layout styled with Tailwind CSS and custom CSS
-- 📚 README-based summaries of public projects from the `chekus-dev` and `chokafor-bit` GitHub accounts, with fork and upstream attribution
-- 📊 Live GitHub repository, star, language, and account-age statistics for both accounts, cached independently for one hour
-- 🍔 Mobile navigation handled by `static/js/main.js`
-- 🔐 Environment-based Flask configuration through `.env` and `config.py`
-- 🛡️ Security headers applied to every response
-- 🗺️ `robots.txt` and `sitemap.xml` routes
-- 🚀 Gunicorn entry point for production deployment
+- **One `base.html`** instead of six near-duplicate HTML files — header, nav, mobile menu, and footer now live in a single place.
+- **Tailwind config and mobile-menu JS extracted** into `static/js/tailwind-config.js` and `static/js/main.js` instead of being copy-pasted into every page.
+- **Portfolio and Blog pages are now data-driven** (`PROJECTS` / `REPOS` lists in `app.py`) instead of hardcoded card blocks on every page.
+- **Shared window-mockup component** (`templates/_macros.html`) renders each project's browser/terminal-style preview from one place instead of repeating markup per card.
+- **Live GitHub stats** on the homepage — public repo count, stars, followers, top languages, and top repos, pulled from the GitHub API at request time and cached for an hour. Falls back to a simple link if the API is unreachable, instead of breaking the page or showing fake numbers.
+- **Case study page** (`/portfolio/cv-portfolio`) documenting the real decisions behind this site's build — linked from the homepage hero and the Portfolio page.
+- **Real favicon and Open Graph image** as static SVG files, so links shared on WhatsApp/social show a proper preview.
+- **Contact page** with direct links (email, phone, WhatsApp, GitHub) — no form to maintain or secure.
+- **Environment-based config** (`config.py` + `.env`) — no more hardcoded `debug=True` in production.
+- **Security headers** (`X-Frame-Options`, `X-Content-Type-Options`, etc.) added on every response.
+- **404 / 500 error pages**, `robots.txt`, and `sitemap.xml`.
+- **Accessibility**: skip-to-content link, visible focus rings, `aria-current` on active nav links.
+- **Production entrypoint** (`wsgi.py`) for Gunicorn, with `requirements.txt` pinned and separated from dev tooling.
 
 ---
 
@@ -54,8 +50,6 @@ python app.py
 
 Visit **`http://localhost:5000`**.
 
-> The default configuration runs in production mode. Set `FLASK_ENV=development` and `FLASK_DEBUG=1` for local development.
-
 ---
 
 ## 🚀 Production
@@ -69,43 +63,50 @@ export FLASK_ENV=production
 gunicorn -w 4 -b 0.0.0.0:8000 wsgi:app
 ```
 
-**Environment variables:**
+**Required in production** (see `.env.example`):
 
 | Variable | Purpose |
 |---|---|
-| `SECRET_KEY` | Random secret used by Flask |
-| `FLASK_ENV` | Leave unset or set to `production` |
-| `FLASK_DEBUG` | Leave unset or set to `0` |
-| `GITHUB_TOKEN` | Optional — a GitHub personal access token for authenticated API requests and a higher rate limit. Create one in GitHub's Developer settings and store it only in your local `.env` or deployment secret store. No repository permissions are required, since these are public profile reads. |
+| `SECRET_KEY` | Required — random string used by Flask |
 
 ---
 
 ## 🗂️ Project Structure
 
+```
+app.py                            Routes, GitHub stats fetcher, error handlers
+config.py                         Environment-based configuration
+wsgi.py                           Production entrypoint (gunicorn)
+templates/
+  base.html                       Shared layout (header, nav, footer)
+  _macros.html                    Shared window-mockup component for project cards
+  landing.html, about.html, services.html,
+  portfolio.html, blog.html, contact.html
+  case_study_cv_portfolio.html    Case study for the featured project
+  404.html, 500.html
+static/
+  css/site.css                    Animations, accessibility, focus states
+  js/tailwind-config.js           Shared Tailwind theme
+  js/main.js                      Mobile menu behavior
+  img/favicon.svg, og-cover.svg
+```
+
 ---
 
-## 🧭 Routes
+## ➕ Adding a New Project or Repo Card
 
-| URL | Page |
-| --- | --- |
-| `/` | Home |
-| `/about` | About |
-| `/services` | Services |
-| `/portfolio` | Portfolio and GitHub project index |
-| `/contact` | Contact |
-| `/200.html` | Request-success page (HTTP 200) |
-| `/robots.txt` | Crawler instructions |
-| `/sitemap.xml` | Sitemap |
+Edit the `PROJECTS` or `REPOS` list at the top of `app.py` — no template changes needed. Each project entry supports:
+
+- **`name`, `tag`, `description`, `url`** — displayed on the card
+- **`path`, `kind`** — passed to the `window_mockup` macro; `kind` can be `browser`, `terminal`, `todo`, or `profile`
+- **`featured`** — set `True` on exactly one project to feature it in the homepage hero
+- **`case_study`** — optional; set to a route name if you write a dedicated case study page for that project
 
 ---
 
-## 🔗 GitHub Project References
+## 📊 GitHub Stats
 
-The home page summarizes all **23 public repositories** reviewed across both accounts. Project descriptions are drawn from each repository's README; where a README is missing or contains only a title, the page states that rather than inferring a description.
-
-Forked repositories are presented as such, with the upstream repository linked. The portfolio labels the user's role on these forks as a **partner contribution** — this does not claim authorship of the upstream project.
-
-The project index spans Go HTTP servers and template rendering, JSON APIs, Flask applications, a task manager, a voice-first 3D creative studio, an education platform, ASCII-art tools, a text processor, an artist/concert explorer, blockchain learning exercises, and graph-algorithm coursework.
+`get_github_stats()` in `app.py` calls the public GitHub API for the username set in `GITHUB_USERNAME`. No auth token is required, but unauthenticated calls are capped at 60/hour per IP — the 1-hour cache keeps normal traffic well under that. If you outgrow the limit, add a GitHub personal access token and pass it as an `Authorization` header in `_github_get()`.
 
 <div align="center">
 <br/>
