@@ -45,8 +45,9 @@
       menuBtn.setAttribute("aria-expanded", "true");
     }
 
-    iconOpen.classList.toggle("hidden");
-    iconClose.classList.toggle("hidden");
+    // Guard: not every page may render both icon elements.
+    if (iconOpen) iconOpen.classList.toggle("hidden");
+    if (iconClose) iconClose.classList.toggle("hidden");
   });
 
   // Close the menu automatically if the viewport grows past the mobile breakpoint
@@ -55,8 +56,8 @@
       mobileMenu.style.maxHeight = "0px";
       mobileMenu.style.opacity = "0";
       menuBtn.setAttribute("aria-expanded", "false");
-      iconOpen.classList.remove("hidden");
-      iconClose.classList.add("hidden");
+      if (iconOpen) iconOpen.classList.remove("hidden");
+      if (iconClose) iconClose.classList.add("hidden");
     }
   });
 })();

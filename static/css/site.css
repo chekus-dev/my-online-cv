@@ -125,6 +125,8 @@ a[class~="border-borderstrong"]:hover {
 
 /* Cards */
 article[class~="border-borderstrong"] {
+  border-radius: 1rem;
+  overflow: hidden;
   transition: border-color 0.15s ease;
 }
 
@@ -132,28 +134,30 @@ article[class~="border-borderstrong"]:hover {
   border-color: rgb(var(--accent) / 0.6);
 }
 
-/* Profile photo */
+/* Profile photo — professional headshot treatment
+   Previous version (accent-coloured ring, diagonal gradient panel,
+   deep shadow, hover-lift animation) read as a marketing graphic.
+   This version is the simpler, quieter framing used for a team
+   page or LinkedIn-style photo:
+   - 4:5 ratio, the standard professional headshot proportion
+     (was 3:4), with the crop centred higher to frame face and
+     shoulders rather than half the torso.
+   - a single neutral border, no accent-coloured inner ring and
+     no gradient backing panel — the photo is the whole visual,
+     not a decorated frame around it.
+   - a soft, low, neutral shadow instead of a heavy coloured one,
+     and no hover lift — professional photo placements are static.
+   - corners toned down from very rounded to a modest radius,
+     closer to a passport/ID-style crop than a playful app icon. */
 .profile-photo-slot {
   width: min(100%, 280px);
   aspect-ratio: 4 / 5;
   justify-self: end;
+  align-self: start;
   overflow: hidden;
   border: 1px solid rgb(var(--borderstrong));
-  border-radius: 1.5rem;
-  background:
-    linear-gradient(135deg, rgb(var(--surface2)) 0%, rgb(var(--surface) 100%));
-  box-shadow: 0 20px 45px rgb(0 0 0 / 0.22);
-  padding: 0.45rem;
-  position: relative;
-}
-
-.profile-photo-slot::before {
-  content: "";
-  position: absolute;
-  inset: 0.45rem;
-  border-radius: 1.1rem;
-  border: 1px solid rgb(var(--borderstrong) / 0.8);
-  pointer-events: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.12);
 }
 
 .profile-photo-slot img {
@@ -161,14 +165,14 @@ article[class~="border-borderstrong"]:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
-  border-radius: 1.05rem;
+  object-position: center 20%;
 }
 
 @media (max-width: 1023px) {
   .profile-photo-slot {
     justify-self: start;
-    width: min(100%, 260px);
+    align-self: auto;
+    width: min(100%, 240px);
   }
 }
 
@@ -183,6 +187,7 @@ article[class~="border-borderstrong"]:hover {
   gap: 0.45rem;
   padding: 0.45rem 0.65rem;
   border: 1px solid rgb(var(--borderstrong));
+  border-radius: 9999px;
   background: rgb(var(--surface) / 0.92);
   box-shadow: 0 8px 24px rgb(0 0 0 / 0.18);
   backdrop-filter: blur(12px);
@@ -226,6 +231,7 @@ main { animation: fadeInUp 0.4s ease-out; }
   color: rgb(var(--on-accent));
   font-weight: 600;
   padding: 0.75rem 1.25rem;
+  border-radius: 0 0 0.75rem 0;
 }
 
 .skip-link:focus { left: 0; }
@@ -308,12 +314,14 @@ select:focus-visible {
   font-size: 0.88em;
   background: rgb(var(--surface2));
   border: 1px solid rgb(var(--borderstrong));
+  border-radius: 0.4rem;
   padding: 0.1em 0.35em;
 }
 
 .post-body pre {
   background: rgb(var(--surface));
   border: 1px solid rgb(var(--borderstrong));
+  border-radius: 0.75rem;
   padding: 1rem 1.1rem;
   overflow-x: auto;
   line-height: 1.6;
@@ -326,10 +334,25 @@ select:focus-visible {
   font-size: 0.85rem;
 }
 
-.post-body table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.post-body table { width: 100%; border-collapse: collapse; font-size: 0.92rem; border-radius: 0.75rem; overflow: hidden; }
 .post-body th,
 .post-body td { border: 1px solid rgb(var(--borderstrong)); padding: 0.5rem 0.75rem; text-align: left; }
 .post-body th { color: rgb(var(--ink)); background: rgb(var(--surface)); }
 
 .post-body hr { border: 0; border-top: 1px solid rgb(var(--borderstrong)); }
-.post-body img { max-width: 100%; height: auto; }
+.post-body img { max-width: 100%; height: auto; border-radius: 0.75rem; }
+
+body[data-theme="light"] {
+  color-scheme: light;
+  --bg: 255 255 255;
+  --surface: 248 248 249;
+  --surface2: 238 238 240;
+  --ink: 23 23 25;
+  --muted: 113 113 122;
+  --mutedstrong: 63 63 70;
+  --borderstrong: 220 220 224;
+  --accent: 234 88 12;
+  --accentstrong: 194 65 12;
+  --accentdim: 255 237 213;
+  --on-accent: 255 255 255;
+}

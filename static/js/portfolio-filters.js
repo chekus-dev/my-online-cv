@@ -1,56 +1,89 @@
 document.addEventListener("DOMContentLoaded", () => {
-	const root = document.getElementById("projects-root");
-	if (!root) return; // Not on the portfolio page
+  const root = document.getElementById("projects-root");
+  if (!root) return; // Not on the portfolio page
 
-	const chips = document.querySelectorAll(".filter-chip");
-	const cards = document.querySelectorAll(".project-card");
-	const sections = document.querySelectorAll(".account-section");
-	const emptyState = document.getElementById("empty-state");
-	const countEl = document.getElementById("filter-count");
+  const chips = document.querySelectorAll(".filter-chip");
+  const sections = document.querySelectorAll(".account-section");
+  const emptyState = document.getElementById("empty-state");
+  const countEl = document.getElementById("filter-count");
 
-	const state = { account: "all", lang: "all" };
+  // Build state from whichever filter groups actually exist in the markup
+  // (currently "account" and "lang"), instead of hardcoding them, so a new
+  // chip group just works without touching this file.
+  const groups = new Set();
+  chips.forEach((chip) => groups.add(chip.dataset.filterGroup));
 
-	function applyFilters() {
-		let visibleTotal = 0;
+  const params = new URLSearchParams(window.location.search);
+  const state = {};
+  groups.forEach((group) => {
+    state[group] = params.get(group) || "all";
+  });
 
-		sections.forEach((section) => {
-			let visibleInSection = 0;
-			const sectionAccount = section.dataset.account;
+  function syncChipState() {
+    chips.forEach((chip) => {
+      const group = chip.dataset.filterGroup;
+      const isActive = chip.dataset.filterValue === state[group];
+      chip.classList.toggle("is-active", isActive);
+      chip.setAttribute("aria-pressed", String(isActive));
+    });
+  }
 
-			section.querySelectorAll(".project-card").forEach((card) => {
-				const matchesAccount = state.account === "all" || card.dataset.account === state.account;
-				const matchesLang = state.lang === "all" || card.dataset.lang === state.lang;
-				const show = matchesAccount && matchesLang;
-				card.hidden = !show;
-				if (show) {
-					visibleInSection += 1;
-					visibleTotal += 1;
-				}
-			});
+  function syncUrl() {
+    const next = new URLSearchParams(window.location.search);
+    groups.forEach((group) => {
+      if (state[group] && state[group] !== "all") {
+        next.set(group, state[group]);
+      } else {
+        next.delete(group);
+      }
+    });
+    const query = next.toString();
+    const url = query ? `${window.location.pathname}?${query}` : window.location.pathname;
+    window.history.replaceState(null, "", url);
+  }
 
-			section.hidden = visibleInSection === 0;
-		});
+  function applyFilters() {
+    let visibleTotal = 0;
 
-		emptyState.classList.toggle("hidden", visibleTotal > 0);
-		if (countEl) {
-			countEl.textContent = visibleTotal === 1 ? "1 project" : `${visibleTotal} projects`;
-		}
-	}
+    sections.forEach((section) => {
+      let visibleInSection = 0;
 
-	chips.forEach((chip) => {
-		chip.addEventListener("click", () => {
-			const group = chip.dataset.filterGroup;
-			const value = chip.dataset.filterValue;
+      section.querySelectorAll(".project-card").forEach((card) => {
+        const matches = [...groups].every((group) => {
+          return state[group] === "all" || card.dataset[group] === state[group];
+        });
 
-			state[group] = value;
+        card.hidden = !matches;
+        if (matches) {
+          visibleInSection += 1;
+          visibleTotal += 1;
+        }
+      });
 
-			document
-				.querySelectorAll(`.filter-chip[data-filter-group="${group}"]`)
-				.forEach((el) => el.classList.toggle("is-active", el === chip));
+      section.hidden = visibleInSection === 0;
+    });
 
-			applyFilters();
-		});
-	});
+    if (emptyState) emptyState.classList.toggle("hidden", visibleTotal > 0);
+    if (countEl) {
+      countEl.textContent = visibleTotal === 1 ? "1 project" : `${visibleTotal} projects`;
+    }
+  }
 
-	applyFilters();
+  chips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      const group = chip.dataset.filterGroup;
+      const value = chip.dataset.filterValue;
+
+      // Clicking the already-active chip resets that group back to "all"
+      // instead of doing nothing, so chips double as their own clear button.
+      state[group] = state[group] === value ? "all" : value;
+
+      syncChipState();
+      syncUrl();
+      applyFilters();
+    });
+  });
+
+  syncChipState();
+  applyFilters();
 });
