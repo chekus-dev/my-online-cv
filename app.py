@@ -130,8 +130,8 @@ GITHUB_PROJECTS = [
     },
     {
         "account": "chekus-dev", "name": "Budget Tracker", "language": "Go · MySQL · JavaScript · Python",
-        "description": "A personal budget tracker with a Go HTTP server, MySQL persistence, no-reload expense management, and a separate Python reporting script.",
-        "url": "https://github.com/chekus-dev/web-server-in-go-with-mysql-database",
+        "description": "A personal budget tracker with a Go HTTP server, PostgresSQL persistence, no-reload expense management, and a separate Python reporting script.",
+        "url": "https://github.com/chekus-dev/budget-tracker",
     },
     {
         "account": "chokafor-bit", "name": "AdSense Bot Loader", "language": "Python · Selenium",
