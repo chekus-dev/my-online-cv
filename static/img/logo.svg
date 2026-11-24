@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title description">
+  <title id="title">Chekus Joseph monogram</title>
+  <desc id="description">An orange C and cream J on a dark square.</desc>
+  <rect width="64" height="64" rx="12" fill="#0A0A0B"/>
+  <path d="M43 17.5C39.2 14.8 34.8 13.5 30.2 13.5C20.1 13.5 12 21.4 12 31.8C12 42.2 20.1 50.5 30.2 50.5C35.2 50.5 39.6 48.9 43.2 46.1" fill="none" stroke="#F97316" stroke-width="6" stroke-linecap="square"/>
+  <path d="M38.5 17V42.2C38.5 47.7 35.2 50.8 30.3 50.8C27.2 50.8 24.8 49.7 23 47.7" fill="none" stroke="#F5F5F4" stroke-width="5.5" stroke-linecap="square" stroke-linejoin="round"/>
+  <circle cx="38.5" cy="13" r="3" fill="#F97316"/>
+</svg>

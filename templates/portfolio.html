@@ -25,7 +25,7 @@
 		<header class="sticky top-0 z-20 backdrop-blur-lg bg-bg/85">
 			<div class="w-[min(1120px,calc(100%-32px))] mx-auto flex items-center justify-between min-h-[64px] gap-4 flex-wrap">
 				<a href="/" class="flex items-center gap-2.5" aria-label="Chekus Joseph home">
-					<span class="w-8 h-8 grid place-items-center bg-accent text-white font-display font-bold text-sm">CJ</span>
+					<img class="brand-mark w-8 h-8" src="/static/img/logo.svg" alt="Chekus Joseph logo" />
 					<span class="hidden sm:inline text-sm font-medium text-mutedstrong">Chekus Joseph</span>
 				</a>
 				<nav class="hidden md:flex gap-7 flex-wrap" aria-label="Primary">
@@ -67,7 +67,7 @@
 								<a href="https://github.com/chokafor-bit" target="_blank" rel="noreferrer" class="text-accent hover:text-accentstrong">@chokafor-bit &rarr;</a>
 							</div>
 						</div>
-						<figure class="profile-photo-slot w-full max-w-[220px] justify-self-start md:justify-self-end">
+						<figure class="profile-photo-slot justify-self-start md:justify-self-end">
 							<img src="/static/img/passport.jpg" alt="Portrait of Chekus Joseph" />
 						</figure>
 					</div>
@@ -118,7 +118,7 @@
 						</div>
 					</section>
 
-					<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+					<div class="portfolio-project-grid grid grid-cols-1 md:grid-cols-2 gap-4">
 						{% for project in github_projects %}
 						<article class="flex flex-col p-5 transition-colors">
 							<div class="flex items-start justify-between gap-4 mb-2">

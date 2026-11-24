@@ -104,6 +104,12 @@ GITHUB_PROJECTS = [
         "homepage": "https://my-creative-partner.vercel.app",
     },
     {
+        "account": "chekus-dev", "name": "NexGen Guru Consulting", "language": "Go · PostgreSQL · Tailwind CSS",
+        "description": "A production education and creative-technology website for NexGen Guru, with course applications, contact messages, newsletter subscriptions, testimonials, and an administrative content dashboard.",
+        "url": "https://github.com/chekus-dev/nexgen-guru",
+        "homepage": "https://nexgen-guru.onrender.com",
+    },
+    {
         "account": "chekus-dev", "name": "Online CV and Portfolio", "language": "Python · Flask · Tailwind CSS",
         "description": "This Flask site, with service pages, responsive navigation, security headers, and GitHub project listings.",
         "url": "https://github.com/chekus-dev/my-online-cv",

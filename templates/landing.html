@@ -28,7 +28,7 @@
     <header class="sticky top-0 z-20 backdrop-blur-lg bg-bg/85 border-b border-borderstrong">
       <div class="w-[min(1120px,calc(100%-32px))] mx-auto flex items-center justify-between min-h-[64px] gap-4 flex-wrap">
         <a href="/" class="flex items-center gap-2.5" aria-label="Chekus Joseph home">
-          <span class="w-8 h-8 grid place-items-center bg-accent text-white font-display font-bold text-sm">CJ</span>
+          <img class="brand-mark w-8 h-8" src="/static/img/logo.svg" alt="Chekus Joseph logo" />
           <span class="hidden sm:inline text-sm font-medium text-mutedstrong">Chekus Joseph</span>
         </a>
         <nav class="hidden md:flex items-center gap-7 flex-wrap" aria-label="Primary">
@@ -71,7 +71,7 @@
               <span>Go</span><span>Python · Flask</span><span>PostgreSQL</span><span>Linux · deployment</span>
             </div>
           </div>
-          <figure class="profile-photo-slot w-full max-w-[240px] justify-self-start md:justify-self-end">
+          <figure class="profile-photo-slot justify-self-start md:justify-self-end">
             <img src="/static/img/passport.jpg" alt="Portrait of Chekus Joseph" />
           </figure>
         </div>
@@ -136,6 +136,19 @@
                 <div class="flex gap-5 text-sm">
                   <a href="https://budget-tracker-1-svws.onrender.com/" target="_blank" rel="noreferrer" class="text-accent hover:text-accentstrong">Live demo &rarr;</a>
                   <a href="https://github.com/chekus-dev/budget-tracker" target="_blank" rel="noreferrer" class="text-muted hover:text-ink">Source</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="border border-borderstrong p-5 flex flex-col">
+              <p class="font-mono text-[0.65rem] text-accent mb-1">Go · PostgreSQL · Supabase · Tailwind CSS</p>
+              <h3 class="font-display font-semibold text-base mb-3">NexGen Guru Consulting</h3>
+              <p class="text-muted text-sm mb-4">A production website for a digital education and creative technology company, with course applications, contact and newsletter forms, testimonial ratings, and an admin dashboard for managing submitted content.</p>
+              <div class="border-t border-borderstrong pt-3 mt-auto flex flex-wrap items-center justify-between gap-3">
+                <p class="font-mono text-[0.62rem] text-muted">Go&nbsp; · &nbsp;PostgreSQL&nbsp; · &nbsp;Supabase&nbsp; · &nbsp;Tailwind</p>
+                <div class="flex gap-5 text-sm">
+                  <a href="https://nexgen-guru.onrender.com" target="_blank" rel="noreferrer" class="text-accent hover:text-accentstrong">Live site &rarr;</a>
+                  <a href="https://github.com/chekus-dev/nexgen-guru" target="_blank" rel="noreferrer" class="text-muted hover:text-ink">Source</a>
                 </div>
               </div>
             </article>
@@ -237,7 +250,7 @@
                 <a href="https://github.com/{{ account.username }}" target="_blank" rel="noreferrer">@{{ account.username }}</a>
               </h3>
               {% if account.stats %}
-              <div class="grid grid-cols-2 gap-3">
+              <div class="github-account-stats grid grid-cols-2 gap-3">
                 <div class="border border-borderstrong p-4"><p class="font-display font-semibold text-xl">{{ account.stats.public_repos }}</p><p class="text-xs text-muted mt-1">Public repositories</p></div>
                 <div class="border border-borderstrong p-4"><p class="font-display font-semibold text-xl">{{ account.stats.total_stars }}</p><p class="text-xs text-muted mt-1">Stars earned</p></div>
                 <div class="border border-borderstrong p-4"><p class="font-display font-semibold text-xl">{% for language in account.stats.top_languages[:2] %}{{ language }}{% if not loop.last %} · {% endif %}{% endfor %}</p><p class="text-xs text-muted mt-1">Top languages</p></div>
