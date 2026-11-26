@@ -140,11 +140,6 @@ GITHUB_PROJECTS = [
         "url": "https://github.com/chekus-dev/budget-tracker",
     },
     {
-        "account": "chokafor-bit", "name": "AdSense Bot Loader", "language": "Python · Selenium",
-        "description": "A browser-automation fork with Selenium scripts and proxy/worker configuration.",
-        "url": "https://github.com/chokafor-bit/Adsense-bot-loader", "upstream": "caseykingsley77/Adsense-bot-loader",
-    },
-    {
         "account": "chokafor-bit", "name": "Branch Blockchain", "language": "JavaScript · Blockchain tooling",
         "description": "A collection of blockchain learning exercises covering transactions, cryptography, smart contracts, tokens, NFTs, and DeFi.",
         "url": "https://github.com/chokafor-bit/Branch-Blockchain", "upstream": "kuzikov/Branch-Blockchain",
@@ -156,7 +151,7 @@ GITHUB_PROJECTS = [
     },
     {
         "account": "chokafor-bit", "name": "HTTP Server in Golang", "language": "Go · net/http",
-        "description": "A Go HTTP server repository; a README is not currently present, so its purpose is not documented there.",
+        "description": "A beginner Go HTTP server using net/http that serves a JSON welcome response from the root route on localhost port 8080.",
         "url": "https://github.com/chokafor-bit/http-server-in-golang",
     },
     {
@@ -175,18 +170,14 @@ GITHUB_PROJECTS = [
         "url": "https://github.com/chokafor-bit/public", "upstream": "01-edu/public",
     },
     {
-        "account": "chokafor-bit", "name": "Quiz Server", "language": "Go",
-        "description": "A Go quiz-server repository; README content was unavailable during review, so feature details could not be verified.",
-        "url": "https://github.com/chokafor-bit/quiz-server", "upstream": "brownstyl/quiz-server",
-    },
-    {
-        "account": "chokafor-bit", "name": "Quize", "language": "Go tooling · JavaScript assets",
-        "description": "A quiz project repository with Go utilities for extracting questions, achievements, shop data, CSS, and JavaScript and generating HTML.",
+        "account": "chokafor-bit", "name": "Quize", "language": "Go · JavaScript · HTML/CSS",
+        "description": "A browser-based Go quiz with timed Easy, Medium, Hard, and Daily rounds, 15-question random quizzes, coins and power-ups, achievements, game memory, PIN-protected player progress, multiplayer rooms, and a server-backed leaderboard.",
         "url": "https://github.com/chokafor-bit/quize",
+        "homepage": "https://quize-u1t3.onrender.com/",
     },
     {
-        "account": "chokafor-bit", "name": "The Codecrafters", "language": "Go",
-        "description": "A Go learning repository organized around Codecrafters-style exercises; no README was available during review.",
+        "account": "chokafor-bit", "name": "The Codecrafters", "language": "Go · CLI",
+        "description": "A collection of Go command-line learning projects, including an interactive calculator, hexadecimal/binary/decimal converter, string transformer with palindrome and history features, and a file-processing pipeline.",
         "url": "https://github.com/chokafor-bit/the-codecrafters",
     },
 ]
@@ -212,12 +203,16 @@ _github_cache = {}
 GITHUB_CACHE_TTL = 60 * 60  # 1 hour — avoids hammering the unauthenticated API rate limit
 
 
-def _github_get(path):
+def _github_get(path, username=GITHUB_USERNAME):
     headers = {
         "Accept": "application/vnd.github+json",
         "User-Agent": "chekus-portfolio",
     }
-    github_token = os.environ.get("GITHUB_TOKEN")
+    token_names = {
+        "chekus-dev": "GITHUB_TOKEN_CHEKUS_DEV",
+        "chokafor-bit": "GITHUB_TOKEN_CHOKAFOR_BIT",
+    }
+    github_token = os.environ.get(token_names.get(username, "")) or os.environ.get("GITHUB_TOKEN")
     if github_token:
         headers["Authorization"] = f"Bearer {github_token}"
     req = urllib.request.Request(
@@ -239,8 +234,8 @@ def get_github_stats(username=GITHUB_USERNAME):
         return cached["data"]
 
     try:
-        profile = _github_get(f"/users/{username}")
-        repos = _github_get(f"/users/{username}/repos?per_page=100&sort=updated")
+        profile = _github_get(f"/users/{username}", username)
+        repos = _github_get(f"/users/{username}/repos?per_page=100&sort=updated", username)
 
         total_stars = sum(r.get("stargazers_count", 0) for r in repos)
         lang_counts = {}
