@@ -77,6 +77,36 @@
 						<span class="text-muted">{{ github_projects|selectattr('upstream')|list|length }} forked projects</span>
 					</div>
 
+					<section class="border-y border-borderstrong py-8 md:py-10 mb-10" aria-labelledby="nexgen-ai-title">
+						<div class="flex flex-wrap items-start justify-between gap-5 mb-7">
+							<div class="max-w-[760px]">
+								<p class="font-mono text-[0.7rem] text-accent mb-2">AI integration · Go / Gemini / SendGrid</p>
+								<h2 id="nexgen-ai-title" class="font-display font-semibold text-2xl md:text-[2rem] leading-tight mb-3">NexGen Guru AI Assistance</h2>
+								<p class="text-muted">I integrated Gemini into the NexGen public website and administration workflow so visitors can get informed answers and administrators can prepare professional responses without sending emails automatically.</p>
+							</div>
+							<a href="https://nexgen-guru.onrender.com" target="_blank" rel="noreferrer" class="text-sm font-medium text-accent hover:text-accentstrong">Visit the live platform &rarr;</a>
+						</div>
+
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-8">
+							<div>
+								<h3 class="font-display font-semibold text-base mb-3">Visitor chatbot</h3>
+								<ul class="list-disc pl-5 space-y-2 text-sm text-muted">
+									<li>Answers questions using the company's current courses, delivery options, public forms, articles, testimonials, and contact details.</li>
+									<li>Uses Gemini as a grounded site assistant while keeping provider API keys exclusively on the server.</li>
+									<li>Limits request size and chat history, validates message roles, and returns clear provider or configuration errors.</li>
+								</ul>
+							</div>
+							<div>
+								<h3 class="font-display font-semibold text-base mb-3">Admin email assistance</h3>
+								<ul class="list-disc pl-5 space-y-2 text-sm text-muted">
+									<li>Generates editable visitor-reply and newsletter drafts for authenticated administrators.</li>
+									<li>Redacts recognizable email addresses and phone numbers from visitor inquiries before drafting.</li>
+									<li>Keeps sending explicit: administrators review each draft and must confirm before SendGrid accepts the message.</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
 					<section class="border-y border-borderstrong py-8 md:py-10 mb-10" aria-labelledby="budget-tracker-title">
 						<div class="flex flex-wrap items-start justify-between gap-5 mb-7">
 							<div class="max-w-[760px]">
@@ -131,6 +161,13 @@
 								{% endif %}
 							</div>
 							<p class="text-muted text-sm mb-4">{{ project.description }}</p>
+							{% if project.achievements %}
+							<ul class="list-disc pl-5 space-y-1.5 text-sm text-muted mb-4">
+								{% for achievement in project.achievements %}
+								<li>{{ achievement }}</li>
+								{% endfor %}
+							</ul>
+							{% endif %}
 							<div class="flex items-center justify-between gap-3 mt-auto">
 								<span class="font-mono text-[0.68rem] text-muted">{{ project.language }}</span>
 								<div class="flex gap-3 text-xs font-medium">

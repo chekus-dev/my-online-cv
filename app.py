@@ -104,10 +104,20 @@ GITHUB_PROJECTS = [
         "homepage": "https://my-creative-partner.vercel.app",
     },
     {
-        "account": "chekus-dev", "name": "NexGen Guru Consulting", "language": "Go · PostgreSQL · Tailwind CSS",
-        "description": "A production education and creative-technology website for NexGen Guru, with course applications, contact messages, newsletter subscriptions, testimonials, and an administrative content dashboard.",
+        "account": "chekus-dev", "name": "NexGen Guru Consulting", "language": "Go · PostgreSQL · Gemini AI · Tailwind CSS",
+        "description": "A production education and creative-technology platform for NexGen Guru, built with Go and PostgreSQL. I designed and implemented the public website and responsive admin dashboard, the contact and course-application workflows, newsletter delivery, testimonial and image management, embedded migrations, a Gemini-powered AI chatbot, and secure content administration.",
         "url": "https://github.com/chekus-dev/nexgen-guru",
         "homepage": "https://nexgen-guru.onrender.com",
+        "achievements": [
+            "Built a responsive education and creative-technology website with course, blog, application, contact, testimonial, and newsletter experiences.",
+            "Added server-side validation, image uploads and previews, Nigerian phone validation, SQL injection protection, and graceful error handling.",
+            "Built an authenticated admin dashboard for applications, messages, testimonials, subscribers, blogs, courses, and site content.",
+            "Implemented soft deletion and saved-version restoration for applications, messages, subscribers, and administrative content.",
+            "Integrated Gemini for a live visitor chatbot that answers from the company's current courses, forms, articles, testimonials, and contact information.",
+            "Added authenticated AI-assisted reply and newsletter drafting in the admin dashboard, with editable drafts and explicit confirmation before SendGrid sends.",
+            "Protected AI integrations with request-size limits, bounded chat history, redacted visitor contact details, provider timeouts, and structured error handling.",
+            "Added strong admin-password enforcement, session hardening, theme switching, embedded SQL migrations, and locally built minified frontend assets.",
+        ],
     },
     {
         "account": "chekus-dev", "name": "Online CV and Portfolio", "language": "Python · Flask · Tailwind CSS",
